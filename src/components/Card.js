@@ -1,28 +1,27 @@
-import React, {useState} from "react";
+import React, {useState, Component} from "react";
 import styled from 'styled-components'
 import { FcHighPriority } from 'react-icons/fc'
 import { Reducer } from "react";
 import './Card.css';
+import TextForm from "./TextForm";
 
 function Card (props) {
   
     const [show, setShow] = useState(false);
+
+    const [inputFields, setInputField] = useState([
+      { title: '', description:''},
+    ]);
+    
     return (
       <Wrapper>
         {show ? (
           <div className="card"> 
-          <div className="cardTitle"  > <h2 onClick={() => setShow(!show)}>TITLE</h2> </div>
-          <div className="cardDescription">{props.description}</div>
-          </div>
-        ) : (
-          <div className="card"> 
-          <div className="cardTitle"> <h2 onClick={() => setShow(!show)}>TITLE</h2> </div>
-          <div className="cardDescription">{props.description}</div>
-          <div className="priority">
-          
+          <div className="cardTitle"> <h2 onClick={() => setShow(!show)} value ={inputFields.title}> TITLE</h2> </div>
+          <div className="cardDescription">{inputFields.description}</div>
+          <div className="priority"></div>
           <input type="radio"/> 
           <FcHighPriority/>
-          </div>
           <h3> Status </h3>
           <div className="status"> 
             <div className="inputRadio">
@@ -42,7 +41,19 @@ function Card (props) {
               <input type="radio" name={props.name4} onChange=""></input>
             </div>
           </div>
-          <button > SHOW </button>
+          <TextForm/>
+          
+          </div>
+        ) : (
+          <div className="card"> 
+          <div className="cardTitle"> <h2 onClick={() => setShow(!show)} value ={inputFields.title}>TITLE </h2> </div>
+          <div className="cardDescription">{props.description}</div>
+          <div className="priority">
+
+          <input type="radio"/> 
+          <FcHighPriority/>
+          </div>
+          <TextForm/>
         </div>
         )}
 
@@ -80,7 +91,6 @@ const Wrapper = styled.header`
   justify-content:end;
   font-size:25px;
 }
-
 `
 
 export default Card;
