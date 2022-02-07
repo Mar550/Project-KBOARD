@@ -30,15 +30,15 @@ function Card (props) {
             </div>
             <div className="inputRadio">
               <label>In Progress</label> 
-              <input type="radio" name={props.name2} onChange=""></input>
+              <input type="radio" name={props.name2} ></input>
             </div>
             <div className="inputRadio">
               <label>Pending</label> 
-              <input type="radio" name={props.name3} onChange=""></input>
+              <input type="radio" name={props.name3} ></input>
             </div>
             <div className="inputRadio">
               <label>Done</label> 
-              <input type="radio" name={props.name4} onChange=""></input>
+              <input type="radio" name={props.name4} ></input>
             </div>
           </div>
           <TextForm/>
