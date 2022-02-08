@@ -1,7 +1,6 @@
-import React, {useState, Component} from "react";
+import React, {useState} from "react";
 import styled from 'styled-components'
 import { FcHighPriority } from 'react-icons/fc'
-import { Reducer } from "react";
 import './Card.css';
 import TextForm from "./TextForm";
 
@@ -12,13 +11,16 @@ function Card (props) {
     const [inputFields, setInputField] = useState([
       { title: '', description:''},
     ]);
+
     
     return (
       <Wrapper>
         {show ? (
           <div className="card"> 
           <div className="cardTitle"> <h2 onClick={() => setShow(!show)} value ={inputFields.title}> TITLE</h2> </div>
-          <div className="cardDescription">{inputFields.description}</div>
+          <div className="cardDescription">{props.description}</div>
+          <TextForm/>
+
           <div className="priority"></div>
           <input type="radio"/> 
           <FcHighPriority/>
@@ -30,30 +32,24 @@ function Card (props) {
             </div>
             <div className="inputRadio">
               <label>In Progress</label> 
-              <input type="radio" name={props.name2} ></input>
+              <input type="radio" name={props.name2} onChange=""></input>
             </div>
             <div className="inputRadio">
               <label>Pending</label> 
-              <input type="radio" name={props.name3} ></input>
+              <input type="radio" name={props.name3} onChange=""></input>
             </div>
             <div className="inputRadio">
               <label>Done</label> 
-              <input type="radio" name={props.name4} ></input>
+              <input type="radio" name={props.name4} onChange=""></input>
             </div>
           </div>
-          <TextForm/>
           
           </div>
         ) : (
           <div className="card"> 
           <div className="cardTitle"> <h2 onClick={() => setShow(!show)} value ={inputFields.title}>TITLE </h2> </div>
           <div className="cardDescription">{props.description}</div>
-          <div className="priority">
-
-          <input type="radio"/> 
-          <FcHighPriority/>
-          </div>
-          <TextForm/>
+          <button> ADD TASK </button>
         </div>
         )}
 
