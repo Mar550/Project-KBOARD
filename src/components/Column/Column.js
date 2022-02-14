@@ -7,6 +7,8 @@ import TextForm from "../TextForm";
 import GetData from "../GetData";
 import Printca from "../Printcard";
 
+
+
 const handleClick = () => { 
   console.log("hi")
 }
@@ -18,7 +20,8 @@ function Column(props) {
     return (
       <Wrapper>
         <div className="column">
-          <h1> {props.title} </h1>
+          <h1 className="title"> {props.title} </h1>
+          <hr/> 
           <Card title="Task1" description="This is the first task"/>
         </div> 
       </Wrapper>
@@ -28,15 +31,6 @@ function Column(props) {
 
 const Wrapper = styled.header`
 
-.column{
-  background: green;
-  width: 330px;
-  height: 500px;
-}
-
-inputfield{
-  border: 1px solid black;
-}
 
 `
 

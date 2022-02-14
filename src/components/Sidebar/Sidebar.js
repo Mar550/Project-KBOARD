@@ -1,105 +1,105 @@
-import React, {useState} from 'react';
-import styled from 'styled-components';
+import React, {useState} from "react";
+import {Nav} from "react-bootstrap";
 import './Sidebar.css';
-import {TiThMenuOutline} from 'react-icons/ti';
-import {AiTwotoneHome} from 'react-icons/ai';
-import {FaTachometerAlt} from 'react-icons/fa';
-import {AiFillProject} from 'react-icons/ai'
-import {MdRoomPreferences} from 'react-icons/md';
-import {CgLogOut} from 'react-icons/cg';
+import {GrHome} from 'react-icons/gr';
+import {AiOutlineProject} from 'react-icons/ai';
+import {MdOutlineContactMail} from 'react-icons/md';
+import {MdOutlineRoomPreferences} from 'react-icons/md';
+import {AiOutlineHome} from 'react-icons/ai';
+import {BiLogOut} from 'react-icons/bi';
+import imglogo from './assets/logowhite.png';
+import {GiHamburgerMenu} from 'react-icons/gi';
 
-function SideBar() {
-
-    const [open,setOpen] = useState(false);
-
-    const handleOpen = () => {
-        setOpen(!open)
-    }
+const Sidebar = (props) => {
+   
+    const [showSidebar,setShowSidebar] = useState(false)
 
     return (
         <>
-        {
-            open? 
-            <div>
-            <div onClick={handleOpen}>
-            <TiThMenuOutline/>
+        {showSidebar ? (
+
+            <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
+            activeKey="/home"
+            onSelect={selectedKey => alert(`selected ${selectedKey}`)}>
+            <div className="sidebar-sticky">
+            
+            <div className="divlink">
+                <GiHamburgerMenu className="icones" onClick={() => setShowSidebar(!showSidebar)}/>
+            </div>
+
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link href="/home" className="navlink"> <AiOutlineHome className="icones"/> <span className="textsidebar"> HOME </span> </Nav.Link>
+            </Nav.Item>
+            </div>
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link eventKey="link-1" className="navlink"> <AiOutlineProject className="icones"/> <span className="textsidebar"> PROJECTS </span> </Nav.Link>
+            </Nav.Item>
+            </div>
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link eventKey="link-2" className="navlink"> <MdOutlineRoomPreferences className="icones"/> <span className="textsidebar"> PREFERENCES </span> </Nav.Link>
+            </Nav.Item>
+            </div>
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link eventKey="link-2" className="navlink"> <MdOutlineContactMail className="icones" color="white"/> <span className="textsidebar"> CONTACT </span> </Nav.Link>
+            </Nav.Item>
+            </div>
+            </div>
+
+            <div className="divlogout" >
+            <Nav.Item>
+                <Nav.Link className="navlink" eventKey="disabled" disabled> <BiLogOut className="icones"/> <span className="textsidebar"> LOGOUT </span> </Nav.Link>
+            </Nav.Item>
+            </div>
+            </Nav>
+
+            ) : (
+            
+            <Nav className="col-md-12 d-none d-md-block bg-light sidebarsmall"
+            activeKey="/home"
+            onSelect={selectedKey => alert(`selected ${selectedKey}`)}>
+            <div className="sidebar-sticky">
+
+            <div className="divlink">
+                <GiHamburgerMenu className="iconessmall" onClick={() => setShowSidebar(!showSidebar)} />
             </div>
             
-            <ul className="navlist">
-                <li>
-                    <a className="menu-item" href="#">
-                        <AiTwotoneHome/> 
-                    </a>
-                </li>
-
-                <li>
-                    <a className="menu-item" href="#">
-                        <FaTachometerAlt/> 
-                    </a>
-                </li>
-    
-                <li>
-                    <a className="menu-item" href="#">
-                        <AiFillProject/>
-                    </a>
-                </li>
-    
-                <li>
-                    <a className="menu-item" href="#">
-                    <MdRoomPreferences/>
-                    </a>
-                </li>
-                <li>
-                    <a className="menu-item" href="#">
-                        <CgLogOut/>
-                    </a>
-                </li>
-                <li>
-                    <a className="menu-item" href="#">
-                    
-                    </a>
-                </li>
-            </ul>
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link href="/home" className="navlink"> <AiOutlineHome className="iconessmall"/> </Nav.Link>
+            </Nav.Item>
             </div>
-            :
-            <div>
-            <ul className="navlist">
-            <li>
-                <a className="menu-item" href="#">
-                Home
-                </a>
-            </li>
-  
-            <li>
-                <a className="menu-item" href="#">
-                Projects
-                </a>
-            </li>
-  
-            <li>
-                <a className="menu-item" href="#">
-                Preferences
-                </a>
-            </li>
-            <li>
-                <a className="menu-item" href="#">
-                Contact
-                </a>
-            </li>
-            <li>
-                <a className="menu-item" href="#">
-                Logout
-                </a>
-            </li>
-            </ul>
-        </div>
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link eventKey="link-1" className="navlink"> <AiOutlineProject className="iconessmall"/> </Nav.Link>
+            </Nav.Item>
+            </div>
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link eventKey="link-2" className="navlink"> <MdOutlineRoomPreferences className="iconessmall"/>  </Nav.Link>
+            </Nav.Item>
+            </div>
+            <div className="divlink">
+            <Nav.Item>
+                <Nav.Link eventKey="link-2" className="navlink"> <MdOutlineContactMail className="iconessmall" color="white"/>  </Nav.Link>
+            </Nav.Item>
+            </div>
+            </div>
 
-        }
-        
-        
+            <div className="divlogout" >
+            <Nav.Item>
+                <Nav.Link className="navlink" eventKey="disabled" disabled> <BiLogOut className="iconessmall"/>  </Nav.Link>
+            </Nav.Item>
+            </div>
+            </Nav>
+            
+            )}
         </>
-    );
+        );
   };
-  
-  export default SideBar;
-  
+
+
+  export default Sidebar
