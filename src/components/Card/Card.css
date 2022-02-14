@@ -1,0 +1,128 @@
+
+.card{
+  background: grey;
+  width: 90%;
+  justify-items:center;
+}
+
+.cardTitle{
+  width: 50%;
+  color: orange;
+}
+
+.status{
+  display:flex;
+  flex-direction:row;
+  gap:10px;
+}
+
+.inputRadio{
+  display:flex;
+  flex-direction:column;
+}
+
+.priority{
+  display:flex;
+  flex-direction:row;
+  justify-content:end;
+  font-size:25px;
+}
+
+
+.basic-card-dark {
+  background-image: linear-gradient(to bottom right, #252525, #4a4a4a);
+  width: 90%;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+  .basic-card-dark .card-title, .basic-card-dark .card-link a {
+      color:#eee;
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-left: 3%;
+  
+  }
+
+  .basic-card-dark .card-text {
+      color: #dcdcdcdd;
+      font-size: 1rem;
+      margin-left: 3%;
+  }
+
+  .basic-card-dark .card-link {
+      border-top: 1px solid #636363;
+  }
+
+  .basic-card-dark .card-link a:after {
+      background:#eee;
+  }
+
+  .card-icon{
+    
+  }
+
+  .icon{
+    font-size: 25px;
+    color:white;
+    margin-left: 45%;
+  }
+
+  .card{
+    background: grey;
+    width: 90%;
+    justify-items:center;
+  }
+  
+  .card-content{
+  }
+  
+  .card-title{
+    margin-top: -0.1%;
+  }
+  
+  .cardTitle{
+    width: 50%;
+    color: orange;
+  }
+  
+  .status{
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+  }
+  
+  .inputRadio{
+    display:flex;
+    flex-direction:column;
+  }
+  
+  .priority{
+    display:flex;
+    flex-direction:row;
+    justify-content:start;
+    font-size:25px;
+    margin-top: 10px;
+  }
+  
+  .highp{
+    display:flex;
+    flex-direction:row;
+    margin-left: 55%;
+  }
+  
+  .openPopup{
+    cursor:pointer;
+  }
+  
+  .editdelete{
+    color:white;
+    font-size: 24px;
+    display:flex;
+    flex-direction:row;
+    justify-content:end;
+    gap: 10px;
+  }
+  

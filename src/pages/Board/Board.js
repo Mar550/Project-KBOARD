@@ -1,8 +1,8 @@
 import React from "react";
 import './Board.css'
 import {BsPlusLg} from 'react-icons/bs';
-import Sidebar from "../components/Sidebar";
-import Column from "../components/Column";
+import Column from "../../components/Column/Column";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Board() 
 {

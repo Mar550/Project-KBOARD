@@ -1,11 +1,11 @@
 import React, {useState, Component } from "react";
 import styled from 'styled-components'
-import Card from "./Card";
-import { useReducer } from "react";
-import AddTask from "./AddTask";
-import TextForm from "./TextForm";
-import GetData from "./GetData";
-import Printca from "./Printcard";
+import Card from "../Card/Card";
+import './Column.css';
+import AddTask from "../AddTask";
+import TextForm from "../TextForm";
+import GetData from "../GetData";
+import Printca from "../Printcard";
 
 const handleClick = () => { 
   console.log("hi")

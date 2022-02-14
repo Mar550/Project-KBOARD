@@ -37,9 +37,11 @@
 .btn{
     color:white;
     font-size: 20px;
-    background-color: green;
+    background-color: #263A69;
     width: 60%;
     margin-left: 20%;
+    border-radius: 10px;
+    height: 30px;
   }
 
 .img2{
@@ -54,4 +56,8 @@
 
 h5{
     text-align: right;
+}
+
+.container{
+    background: linear-gradient(to right, #A9BCD0, #D8DBE2);
 }

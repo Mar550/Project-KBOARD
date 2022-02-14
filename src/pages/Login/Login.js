@@ -2,14 +2,16 @@ import React from 'react';
 import './Login.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import img from '../assets/image1.png';
-import img2 from '../assets/image2.png';
+import img from '../../assets/image1.png';
+import img2 from '../../assets/image2.png';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {IoPersonCircleSharp} from 'react-icons/io5';
+import styled from 'styled-components';
 
 const Login = () => {
     return (
         <>
+        <section className="container">
             <div className="divrow">
             
             <div className="divcol">
@@ -52,6 +54,7 @@ const Login = () => {
             
             </div>
             </div>
+            </section>
         </>
     )
 }

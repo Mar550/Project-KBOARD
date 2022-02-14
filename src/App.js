@@ -8,13 +8,14 @@ import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
 import FAQ from "./pages/FAQ";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 import Contact from "./pages/Contact";
-import Projects from "./pages/Projects";
-import Column from './components/Column';
-import Sidebar from './components/Sidebar';
-import Board from './pages/Board';
+import Projects from "./pages/Projects/Projects";
+import Column from './components/Column/Column';
+import Sidebar from './components/Sidebar/Sidebar';
+import Board from './pages/Board/Board';
+import Testing from './pages/Testing';
 
 const App = () => {
   
@@ -61,6 +62,10 @@ const App = () => {
         
         <Route  path='/column'>
           <Column/>
+        </Route>
+
+        <Route  path='/testing'>
+          <Testing/>
         </Route>
 
         <Route exact path='*'>

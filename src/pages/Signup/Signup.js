@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import img2 from '../assets/image2.png';
+import img2 from '../../assets/image2.png';
 
 function Signup() {
     return (
