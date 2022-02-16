@@ -10,8 +10,7 @@ import styled from 'styled-components';
 
 const Login = () => {
     return (
-        <>
-        <section className="container">
+        <Wrapper className="container">
             <div className="divrow">
             
             <div className="divcol">
@@ -23,13 +22,13 @@ const Login = () => {
                 <div className="group">
             <div className="account">
                 <img src={img2} className="img2" />
-                <h3> Have an account ?</h3>
+                <h3 className="label-first"> Have an account ?</h3>
             </div>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <div>
                     <IoPersonCircleSharp/>
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label className="label">Email address</Form.Label>
                 </div>
                 <Form.Control type="email" placeholder="Enter email" />
             </Form.Group>
@@ -37,28 +36,29 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <div>
                     <RiLockPasswordFill/>
-                    <Form.Label> Password </Form.Label>
+                    <Form.Label className="label"> Password </Form.Label>
                 </div>
                 <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember me " />
+                <Form.Check className="label" type="checkbox" label="Remember me " />
             </Form.Group>
                 <Button className="btn" variant="primary" type="submit">
                 Submit
                 </Button>
                 </div>
-                <h5> Still not Registered ? <a href="#"> Sign in </a></h5>
+                <h5 className="still"> Still not Registered ? <a href="#"> Sign in </a></h5>
             </Form>
             
             </div>
             </div>
-            </section>
-        </>
+        </Wrapper>
     )
 }
 
+const Wrapper = styled.header`
 
+`
 
 export default Login;

@@ -7,7 +7,6 @@ import {MdOutlineContactMail} from 'react-icons/md';
 import {MdOutlineRoomPreferences} from 'react-icons/md';
 import {AiOutlineHome} from 'react-icons/ai';
 import {BiLogOut} from 'react-icons/bi';
-import imglogo from './assets/logowhite.png';
 import {GiHamburgerMenu} from 'react-icons/gi';
 
 const Sidebar = (props) => {
