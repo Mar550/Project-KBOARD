@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 import {Nav} from "react-bootstrap";
 import './Sidebar.css';
 import {GrHome} from 'react-icons/gr';
@@ -10,11 +11,25 @@ import {BiLogOut} from 'react-icons/bi';
 import {GiHamburgerMenu} from 'react-icons/gi';
 
 const Sidebar = (props) => {
-   
+
+    const history = useHistory();
+
+    let user = JSON.parse(localStorage.getItem('user-info'))
+    console.warn(user)
     const [showSidebar,setShowSidebar] = useState(false)
+
+    function logout(){
+        localStorage.clear();
+        history.push('/')
+    }
 
     return (
         <>
+        {
+            localStorage.getItem('user-info') ?
+            
+            <>
+
         {showSidebar ? (
 
             <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
@@ -89,13 +104,18 @@ const Sidebar = (props) => {
             </div>
 
             <div className="divlogout" >
-            <Nav.Item>
-                <Nav.Link className="navlink" eventKey="disabled" disabled> <BiLogOut className="iconessmall"/>  </Nav.Link>
+            <Nav.Item >
+                <Nav.Link className="navlink" onClick={logout}> <BiLogOut className="iconessmall"/>  </Nav.Link>
             </Nav.Item>
             </div>
             </Nav>
             
             )}
+            </>
+            :
+            <>
+            </>
+            }
         </>
         );
   };

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useHistory } from "react-router-dom";
 import './Login.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -9,6 +10,15 @@ import {IoPersonCircleSharp} from 'react-icons/io5';
 import styled from 'styled-components';
 
 const Login = () => {
+
+    const history = useHistory();
+
+    useEffect(()=> {
+        if(localStorage.getItem('user-info'))
+        {
+            history.push("/projects")
+        }
+    },[])
     return (
         <Wrapper>
             <div className="divrow">
@@ -50,8 +60,8 @@ const Login = () => {
             </div>
             
             </div>
-            </div>
-        </Wrapper>
+        </div>
+    </Wrapper>
     )
 }
 

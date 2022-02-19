@@ -16,13 +16,14 @@ import Column from './components/Column/Column';
 import Sidebar from './components/Sidebar/Sidebar';
 import Board from './pages/Board/Board';
 import Testing from './pages/Testing';
+import Protected from './Protected.js';
 
 const App = () => {
   
   return (
 
     <Router>
-        
+      <Sidebar/>
       <Switch>
         <Route exact path='/'>
           <Login/>
@@ -41,7 +42,8 @@ const App = () => {
         </Route>
 
         <Route  path='/board'>
-          <Board/>
+          <Protected Cmd={Board}/>
+          {/* <Board/> */}
         </Route>
 
         <Route  path='/faq'>

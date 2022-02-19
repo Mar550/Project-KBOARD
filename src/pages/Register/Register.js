@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
@@ -8,6 +8,15 @@ import './Register.css';
 
 function Register() {
 
+    const history = useHistory();
+
+    useEffect(()=> {
+        if(localStorage.getItem('user-info'))
+        {
+            history.push("/projects")
+        }
+    },[])
+
     const [firstname,setFirstName]=useState("");
     const [lastname,setLastName]=useState("");
     const [username,setUserName]=useState("");
@@ -16,7 +25,6 @@ function Register() {
     const [passwordConf,setPasswordConf]=useState("");
     const [avatar,setAvatar]=useState("");
     
-    const history = useHistory();
 
     const Signup = async () => {
         let user = {firstname,lastname, username,email,password,passwordConf,avatar};
