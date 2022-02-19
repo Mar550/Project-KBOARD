@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import "./Contact.css";
 function Contact() {
     return (
-        <Wrapper>
-            <h1>Contact Page</h1>
-        </Wrapper>
+        <>
+            <h1> CONTACT </h1>
+        </>
     )
 }
 
-const Wrapper = styled.header`
-
-`
 
 
 export default Contact;

@@ -61,3 +61,10 @@ body{
 .label{
   font-size: 14px;
 }
+
+
+.container {
+  width: 700px;
+  position: relative;
+  margin: 0 auto; }
+

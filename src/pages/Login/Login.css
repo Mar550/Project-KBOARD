@@ -1,15 +1,23 @@
 .divrow{
     display:flex;
     flex-direction:row;
+    gap: 2%;
 }
-.divcol{
-    width:50%;
 
+.divcol1{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
 }
+
 .img{
     width:100%;
     margin-top:8%;
 }
+
+.container {
+    width: 30%;
+    position: relative;
+    margin: 0 auto; }
 
 .form{
     background-color: WHITE;

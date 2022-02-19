@@ -9,7 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
 import FAQ from "./pages/FAQ";
 import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
+import Register from "./pages/Register/Register";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects/Projects";
 import Column from './components/Column/Column';
@@ -28,8 +28,8 @@ const App = () => {
           <Login/>
         </Route>
 
-        <Route  path='/signup'>
-          <Signup/>
+        <Route  path='/register'>
+          <Register/>
         </Route>
 
         <Route  path='/dashboard'>

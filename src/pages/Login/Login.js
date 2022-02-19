@@ -10,46 +10,44 @@ import styled from 'styled-components';
 
 const Login = () => {
     return (
-        <Wrapper className="container">
+        <Wrapper>
             <div className="divrow">
             
-            <div className="divcol">
+            <div className="divcol1">
                 <img className="img" src={img}/>
+                <h1> Tous vos projets,</h1>
+                <h3> en un seul Board. </h3>
+                <h5> KBoard vou permet de gérer votre projet en collaboration avec votre équipe.</h5>
             </div>
 
             <div className="divcol">
-            <Form className="form">
-                <div className="group">
-            <div className="account">
-                <img src={img2} className="img2" />
-                <h3 className="label-first"> Have an account ?</h3>
+            <div className="main">
+                <section className="signup">
+                <img src="#" alt=""/> 
+                <div className="container">
+                <div className="signup-content">
+                    <div  id="signup-form" className="signup-form">
+                    <h2 className="form-title">Have an account ?</h2>
+                
+                <div className="form-group">
+                    <input type="email" className="form-input" name="email" id="email" placeholder="Enter your Email" />
+                </div>
+                <div className="form-group">
+                    <input type="password" className="form-input" name="password" id="password" placeholder="Password"/>
+                    <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
+                </div>
+
+                <div className="form-group">
+                    <button  name="submit" id="submit" className="form-submit"  > LOGIN </button>
+                </div>
+                </div>
+                    <p className="loginhere">
+                        Still not registered ? <a href="#" className="loginhere-link">Sign In here</a>
+                    </p>
+                </div>
+                </div>
+            </section>
             </div>
-
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <div>
-                    <IoPersonCircleSharp/>
-                    <Form.Label className="label">Email address</Form.Label>
-                </div>
-                <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <div>
-                    <RiLockPasswordFill/>
-                    <Form.Label className="label"> Password </Form.Label>
-                </div>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check className="label" type="checkbox" label="Remember me " />
-            </Form.Group>
-                <Button className="btn" variant="primary" type="submit">
-                Submit
-                </Button>
-                </div>
-                <h5 className="still"> Still not Registered ? <a href="#"> Sign in </a></h5>
-            </Form>
             
             </div>
             </div>
