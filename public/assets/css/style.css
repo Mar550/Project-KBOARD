@@ -366,3 +366,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
 .spanfile{
   font-weight: bold;
 }
+
+.form-submit:hover{
+  cursor: pointer;
+}

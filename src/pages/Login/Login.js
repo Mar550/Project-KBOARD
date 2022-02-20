@@ -11,6 +11,8 @@ import styled from 'styled-components';
 
 const Login = () => {
 
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
     const history = useHistory();
 
     useEffect(()=> {
@@ -19,6 +21,23 @@ const Login = () => {
             history.push("/projects")
         }
     },[])
+
+    const loginBtn = async () => {
+        console.warn(email,password)
+        let item={email,password};
+        let result = await fetch("http://127.0.0.1:8000/api/login",{
+            method:'POST',
+            body:JSON.stringify(item),
+            headers:{
+                "Content-Type":"application/json",
+                "Accept": "application/json"
+            }
+        });
+        result = await result.json();
+        localStorage.setItem("user-info",JSON.stringify(result))
+        history.push("/projects");
+    }
+
     return (
         <Wrapper>
             <div className="divrow">
@@ -40,19 +59,19 @@ const Login = () => {
                     <h2 className="form-title">Have an account ?</h2>
                 
                 <div className="form-group">
-                    <input type="email" className="form-input" name="email" id="email" placeholder="Enter your Email" />
+                    <input type="email" className="form-input" name="email" id="email" placeholder="Enter your Email" onChange={(e)=>setEmail(e.target.value)}/>
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-input" name="password" id="password" placeholder="Password"/>
+                    <input type="password" className="form-input" name="password" id="password" placeholder="Password" placeholder="Enter your Email" onChange={(e)=>setPassword(e.target.value)}/>
                     <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
                 </div>
 
                 <div className="form-group">
-                    <button  name="submit" id="submit" className="form-submit"  > LOGIN </button>
+                    <button  name="submit" id="submit" className="form-submit" onClick={loginBtn}  > LOGIN </button>
                 </div>
                 </div>
                     <p className="loginhere">
-                        Still not registered ? <a href="#" className="loginhere-link">Sign In here</a>
+                        Still not registered ? <a href="#" className="loginhere-link" >Sign In here</a>
                     </p>
                 </div>
                 </div>
