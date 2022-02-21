@@ -10,6 +10,9 @@
     font-size: 17px;
 }
 
+.text{
+    color: white;
+}
 .button:hover{
     cursor: pointer;
 }
@@ -47,3 +50,33 @@ body{
     font-weight: bold;
 }
 
+.create{
+    margin-top: 5%;
+    margin-left: 10%;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 20%;
+}
+
+.addProject{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-left: 50%;
+    margin-top: 40%;
+
+}
+
+.addProject:hover{
+    cursor:pointer;
+}
+
+.actionicon{
+    font-size: 25px;
+    color:black;
+}
+
+.actionicon:hover{
+    cursor:pointer;
+}

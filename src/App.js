@@ -41,9 +41,12 @@ const App = () => {
           <Projects/>
         </Route>
 
+        <Route  path='/update/:id'>
+          <Protected Cmp={UpdateProject}/>
+        </Route>
+
         <Route  path='/board'>
-          <Protected Cmd={Board}/>
-          {/* <Board/> */}
+          <Board/> 
         </Route>
 
         <Route  path='/faq'>
