@@ -17,6 +17,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Board from './pages/Board/Board';
 import Testing from './pages/Testing';
 import Protected from './Protected.js';
+import UpdateProject from './pages/Projects/UpdateProject';
 
 const App = () => {
   

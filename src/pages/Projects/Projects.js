@@ -6,6 +6,8 @@ import imgproject from '../../assets/projectimg.jpeg';
 import {AiOutlineEdit} from 'react-icons/ai';
 import {RiDeleteBin5Fill} from 'react-icons/ri'
 import { Link } from 'react-router-dom';
+
+
 function Projects () {
     
     const [name,setName]=useState("");
@@ -39,12 +41,12 @@ function Projects () {
 
     const deleteProject = async($id) =>
     {
-        let result = await fetch ("http://127.0.0.1:8000/api/delete/"+id,{
+        let result = await fetch ("http://127.0.0.1:8000/api/delete/"+$id,{
             method:"DELETE"
         });
         result=await result.json();
         console.warn(result)
-        getData();
+        setData();
     }
 
     useEffect( async() => {
@@ -73,8 +75,10 @@ function Projects () {
                         data.map((item)=>
                         <Card className="card" style={{ width: '41vh' }}>
                             <div>
-                                <AiOutlineEdit className="actionicon a"/>
-                                <RiDeleteBin5Fill className="actionicon b" onClick={()=>deleteProject(item)}/>
+                                <AiOutlineEdit className="actionicon"/>
+                                <Link to={"update/"+item.id}>
+                                <RiDeleteBin5Fill className="actionicon" onClick={()=>deleteProject(item.id)}/>
+                                </Link>
                             </div>
                             <Card.Img  className="img" variant="top" src={imgproject} width="180px"/>
                             <Card.Body className="body">
