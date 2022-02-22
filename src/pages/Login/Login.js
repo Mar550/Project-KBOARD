@@ -39,14 +39,18 @@ const Login = () => {
     }
 
     return (
-        <Wrapper>
+        <>
+            <div className="navbar">
+                NAVBAR
+            </div>
             <div className="divrow">
             
             <div className="divcol1">
+                <div className="texttitle"> 
+                    <h1 className="maintitle"> Gérez tous vos projets </h1>
+                    <h1 className="subtitle"> en une seule plateforme </h1>
+                </div>
                 <img className="img" src={img}/>
-                <h1> Tous vos projets,</h1>
-                <h3> en un seul Board. </h3>
-                <h5> KBoard vou permet de gérer votre projet en collaboration avec votre équipe.</h5>
             </div>
 
             <div className="divcol">
@@ -75,17 +79,16 @@ const Login = () => {
                     </p>
                 </div>
                 </div>
-            </section>
+                </section>
             </div>
             
             </div>
         </div>
-    </Wrapper>
+    </>
     )
 }
 
-const Wrapper = styled.header`
 
-`
+
 
 export default Login;

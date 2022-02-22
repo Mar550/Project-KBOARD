@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Card.css';
 import TextForm from "../TextForm";
-import Popup from "../Popup";
+import Popup from "../Popup/Popup";
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 

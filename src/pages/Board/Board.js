@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-
+import './Board.css';
+import Popup from "../../components/Popup/Popup";
 
 const itemsFromBackend = [
-  { id: 'a', content: "First task" },
-  { id: 'b', content: "Second task" },
-  { id: 'c', content: "Third task" },
-  { id: 'd', content: "Fourth task" },
-  { id: 'e', content: "Fifth task" }
+  { id: 'a', title: "First task", description: "First Description", deadline:"22/02/2022"},
+  { id: 'b', title: "Second task", description: "Second Description", deadline:"22/02/2022"},
+  { id: 'c', title: "Third task", description: "Third Description", deadline:"22/02/2022"},
+  { id: 'd', title: "Fourth task", description: "Fourth Description", deadline:"22/02/2022"},
+  { id: 'e', title: "Fifth task", description: "Fifth Description", deadline:"22/02/2022"},
 ];
 
 const columnsFromBackend = {
   ['a']: {
-    name: "Requested",
+    name: "To Do",
     items: itemsFromBackend
   },
   ['b']: {
-    name: "To do",
+    name: "In Progress",
     items: []
   },
   ['c']: {
-    name: "In Progress",
+    name: "On Hold",
     items: []
   },
   ['d']: {
@@ -28,6 +29,8 @@ const columnsFromBackend = {
     items: []
   }
 };
+
+
 
 const onDragEnd = (result, columns, setColumns) => {
   if (!result.destination) return;
@@ -68,14 +71,20 @@ const onDragEnd = (result, columns, setColumns) => {
 
 function Board() {
   const [columns, setColumns] = useState(columnsFromBackend);
+  const [buttonPopup, setButtonPopup] = useState(false);
+  
+  const[dataBoard,setDataBoard]= useState([]);
+  const[dataTask,setDataTask]= useState([]);
+
   return (
-    <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+    <>
+    <div className="divcontainer">
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
-            <div
+            <div className="divcard"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -91,6 +100,7 @@ function Board() {
                       <div
                         {...provided.droppableProps}
                         ref={provided.innerRef}
+                        className="columns"
                         style={{
                           background: snapshot.isDraggingOver
                             ? "lightblue"
@@ -98,6 +108,7 @@ function Board() {
                           padding: 4,
                           width: 250,
                           minHeight: 500
+                          
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -110,6 +121,7 @@ function Board() {
                               {(provided, snapshot) => {
                                 return (
                                   <div
+                                    className="cards"
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
@@ -121,11 +133,16 @@ function Board() {
                                       backgroundColor: snapshot.isDragging
                                         ? "#263B4A"
                                         : "#456C86",
+                                      opacity: snapshot.isDragging  
+                                        ? "0.2"
+                                        : "0.8",
                                       color: "white",
                                       ...provided.draggableProps.style
                                     }}
                                   >
-                                    {item.content}
+                                    <h1>{item.title} </h1>
+                                    <h4>{item.description}</h4>
+                                    <h4>{item.deadline}</h4>
                                   </div>
                                 );
                               }}
@@ -142,7 +159,13 @@ function Board() {
           );
         })}
       </DragDropContext>
-    </div>
+      </div>
+      <div>
+          <button className="btn-add" onClick={() => setButtonPopup(true)}> New Task </button>
+          <Popup trigger={buttonPopup} setTrigger ={setButtonPopup} />              
+      </div>
+      
+    </>
   );
 }
 

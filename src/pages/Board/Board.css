@@ -1,62 +1,91 @@
+body{
+  background-image: "url('/citywallpaper.jpeg')" ;
+}
+
+.divcontainer{
+  display:flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.tasks{
+  color:black;
+}
+
 .columns{
-    width:100%;
-    display:flex;
-    flex-direction:row;
-    gap:30px;
-    height: 38rem; 
-  }
-  
-.add-btn{
-    color: black;
-    background: blue;
-    width: 10rem;
-    height: 3rem;
-    margin-left: 50%;
-    border-radius: 100%;
-    cursor:pointer;
-    opacity: 0.7;
+  border-radius: 15px;
+}
 
-  }
 
-.bn632-hover {
-    width: 160px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    margin: 20px;
-    height: 55px;
-    text-align:center;
-    border: none;
-    background-size: 300% 100%;
-    border-radius: 50px;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    margin-left: 45%;
+.cards{
+  border-radius: 15px;
 }
-  
-.bn632-hover:hover {
-    background-position: 100% 0;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+
+span{
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
 }
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
   
-.bn632-hover:focus {
-    outline: none;
 }
-  
-.bn632-hover.bn20 {
-    background-image: linear-gradient(
-      to right,
-      #667eea,
-      #764ba2,
-      #6b8dd6,
-      #8e37d7
-    );
-    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+span a:before,
+span a:after{
+  position: absolute;
+  content: "BUTTON";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span a:before{
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after{
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+.btn-add{
+  display: flex;
+  flex-direction: row;
+  background-color: #21325E;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  border: 1px solid#21325E;
+  border-radius: 5px;
+  width: 10rem;
+  height: 3.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  font-size: 20px;
+  font-weight: bold;
+  font-size: 24px;
+
+}
+
+.btn-add:hover{
+  background-color:black;
+  cursor:pointer;
 }
 
