@@ -8,6 +8,7 @@ import img2 from '../../assets/image2.png';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {IoPersonCircleSharp} from 'react-icons/io5';
 import styled from 'styled-components';
+import logowhite from '../../assets/K (1).png';
 
 const Login = () => {
 
@@ -41,14 +42,16 @@ const Login = () => {
     return (
         <>
             <div className="navbar">
-                NAVBAR
+                <img src={logowhite} width="85px" className="imglogo"/>
+                <button className="bn3">HELP</button>
+                <button className="bn4">SIGNUP</button>
             </div>
             <div className="divrow">
             
             <div className="divcol1">
                 <div className="texttitle"> 
-                    <h1 className="maintitle"> Gérez tous vos projets </h1>
-                    <h1 className="subtitle"> en une seule plateforme </h1>
+                    <h1 className="maintitle"> Gérez tous vos projets... </h1>
+                    <h1 className="subtitle"> en une seule plateforme. </h1>
                 </div>
                 <img className="img" src={img}/>
             </div>

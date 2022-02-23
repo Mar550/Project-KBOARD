@@ -13,6 +13,7 @@
 .text{
     color: white;
 }
+
 .button:hover{
     cursor: pointer;
 }
@@ -87,4 +88,8 @@ body{
     text-shadow: black;
     font-size: 3rem;
     font-weight: bold;
+}
+
+.maincontent{
+    margin-top: 30px;
 }

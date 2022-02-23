@@ -23,13 +23,26 @@
 
   .close-btn{
     float: right;
-    backgroud: black;
+    background: white;
     font-size: 30px;
   }
 
   .close-btn:hover{
     cursor:pointer;
 
+  }
+
+  .datefield{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    
+  }
+
+  .span{
+    color:black;
+    margin-top: 5%;
+    font-weight: Bold;
   }
 
   .containerfield{
@@ -69,5 +82,16 @@
 
   .datefield3{
     margin-top: 5%;
-    width: 80%;
+    width: 60%;
   }
+
+
+.navbar{
+  background: black;
+  color:white;
+  display: grid;
+  grid-template-columns: (5,1fr);
+  grid-template-rows: (1,1fr);
+
+}
+

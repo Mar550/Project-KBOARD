@@ -16,6 +16,7 @@ function Register() {
             history.push("/projects")
         }
     },[])
+    /**  */
 
     const [firstname,setFirstName]=useState("");
     const [lastname,setLastName]=useState("");
@@ -41,7 +42,7 @@ function Register() {
 
         result = await result.json()
         localStorage.setItem("user-info",JSON.stringify(result))
-        history.push ("/projects")
+        history.push ("/")
     }
     return (
             <div className="main">
@@ -84,7 +85,7 @@ function Register() {
                 </div>
                 </div>
                     <p className="loginhere">
-                        Have already an account ? <a href="#" className="loginhere-link">Login here</a>
+                        Already have an account ? <a href="#" className="loginhere-link">Login here</a>
                     </p>
                 </div>
                 </div>

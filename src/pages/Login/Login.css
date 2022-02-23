@@ -93,9 +93,10 @@ h5{
 
 .signup-content{
     width: 50%;
-    margin-top: -5%;
     margin-left: 6%;
     opacity: 0.8;
+    margin-top: 7%;
+
 }
 
 .maintitle{
@@ -115,11 +116,60 @@ h5{
 }
 
 .texttitle{
+    margin-left: 8%;
+    margin-top: 5%;
 }
-
 .navbar{
     display:grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(7,1fr);
     background-color: white;
     color:Black;
+    margin-top: -9.2%;
+    height: 5.7rem;
+}
+
+.imglogo{
+    margin-left: 10%;
+}
+
+
+
+/** BUTTONS HEADER **/
+
+.bn3{
+    grid-column: 6 / span 1;
+    width: 7.3rem;
+    height: 3rem;
+    margin-top: 14%;
+    font-size: 17px;
+    color: white;
+    background: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.bn4{
+    grid-column: 7/ span 1;
+    width: 7.3rem;
+    height: 3rem;
+    margin-top: 14%;
+    font-size: 17px;
+    color: white;
+    background: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.bn3:hover{
+    cursor:pointer;
+    background: white;
+    color:black;
+}
+
+.bn4:hover{
+    cursor:pointer;
+    background: white;
+    color:black;
 }

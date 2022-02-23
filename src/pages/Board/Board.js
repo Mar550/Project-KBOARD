@@ -11,6 +11,8 @@ const itemsFromBackend = [
   { id: 'e', title: "Fifth task", description: "Fifth Description", deadline:"22/02/2022"},
 ];
 
+
+
 const columnsFromBackend = {
   ['a']: {
     name: "To Do",
@@ -148,7 +150,7 @@ function Board() {
                                     <h1 className="title">{item.title} </h1> <hr className="line"/>
                                     <h3>{item.description}</h3>
                                     <div className="limitedate">
-                                    <p class="card-text"> Date Limite:</p>
+                                    <p className="card-text"> Date Limite:</p>
                                     <p>{item.deadline}</p>
                                     </div>
                                     

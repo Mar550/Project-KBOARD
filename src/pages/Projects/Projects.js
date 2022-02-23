@@ -62,6 +62,7 @@ function Projects () {
     console.warn("result",data)
     return (
         <>
+            <div className="maincontent">
             <h1 className="titre"> My Projects </h1>
             
             <div>
@@ -113,6 +114,7 @@ function Projects () {
                     <Popup trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
             </div>
             </div> 
+            </div>
             </div>
         </>
     )

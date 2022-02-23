@@ -3,7 +3,6 @@ body{
 
 }
 
-
 .group{
 
     display: flex;
@@ -54,8 +53,8 @@ body{
     height: 2rem;
   }
 
-.labeltitle{
-
+.signup{
+  margin-top: -7%;
 }
 
 .label{

@@ -20,7 +20,13 @@ body{
 .cards{
   border-radius: 15px;
   background-color: black;
-    width: 80%;
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+.columns{
+
 }
 
 span{
