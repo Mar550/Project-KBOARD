@@ -76,6 +76,10 @@ function Board() {
   const[dataBoard,setDataBoard]= useState([]);
   const[dataTask,setDataTask]= useState([]);
 
+  const addBoard = async() => {
+
+  }
+
   return (
     <>
     <div className="divcontainer">
@@ -131,18 +135,23 @@ function Board() {
                                       margin: "0 0 8px 0",
                                       minHeight: "50px",
                                       backgroundColor: snapshot.isDragging
-                                        ? "#263B4A"
-                                        : "#456C86",
+                                        ? "#456C86"
+                                        : "#black",
                                       opacity: snapshot.isDragging  
                                         ? "0.2"
                                         : "0.8",
+                                    
                                       color: "white",
                                       ...provided.draggableProps.style
                                     }}
                                   >
-                                    <h1>{item.title} </h1>
-                                    <h4>{item.description}</h4>
-                                    <h4>{item.deadline}</h4>
+                                    <h1 className="title">{item.title} </h1> <hr className="line"/>
+                                    <h3>{item.description}</h3>
+                                    <div className="limitedate">
+                                    <p class="card-text"> Date Limite:</p>
+                                    <p>{item.deadline}</p>
+                                    </div>
+                                    
                                   </div>
                                 );
                               }}

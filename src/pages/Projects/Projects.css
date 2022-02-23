@@ -80,3 +80,11 @@ body{
 .actionicon:hover{
     cursor:pointer;
 }
+
+.titre{
+    text-align: center;
+    color:white;
+    text-shadow: black;
+    font-size: 3rem;
+    font-weight: bold;
+}

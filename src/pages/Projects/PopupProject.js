@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import TextField from '@material-ui/core/TextField';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import {CgCloseR} from 'react-icons/cg';
-import './Popup.css';
+import './PopupProject.css';
 
 function Popup(props) {
 
@@ -52,13 +50,10 @@ function Popup(props) {
                     value={inputField.description}
                     onChange={event => handleChangeInput(index, event)}
                   />
-              
-                  <input
-                    name="deadline"
-                    labele="Date limite"
+                  <TextField
+                    name="date"
+                    className= "txtfield2"
                     type="date"
-                    label="Date Limite"
-                    className= "datefield3"
                     value={inputField.deadline}
                     onChange={event => handleChangeInput(index, event)}
                   />

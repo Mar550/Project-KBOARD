@@ -19,6 +19,8 @@ body{
 
 .cards{
   border-radius: 15px;
+  background-color: black;
+    width: 80%;
 }
 
 span{
@@ -87,5 +89,19 @@ span a:hover{
 .btn-add:hover{
   background-color:black;
   cursor:pointer;
+  width: 10.5rem;
+  height: 4rem;
+  font-size: 22px;
 }
 
+.submit-btn{
+  cursor:pointer;
+  position: fixed;
+
+}
+
+.limitedate{
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}

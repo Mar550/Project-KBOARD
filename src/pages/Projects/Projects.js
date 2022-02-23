@@ -6,14 +6,18 @@ import imgproject from '../../assets/projectimg.jpeg';
 import {AiOutlineEdit} from 'react-icons/ai';
 import {RiDeleteBin5Fill} from 'react-icons/ri'
 import { Link } from 'react-router-dom';
-
+import Popup from './PopupProject';
 
 function Projects () {
     
     const [name,setName]=useState("");
+    const [description,setDescription]=useState("");
+    const [image,setImage]=useState("");
     const [start,setStart]= useState("");
     const [end,setEnd]= useState("");
     const [status,setStatus]= useState("");
+
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     const disablePastDate = () => {
         const today = new Date();
@@ -58,15 +62,17 @@ function Projects () {
     console.warn("result",data)
     return (
         <>
-            <h1> Projects List </h1>
+            <h1 className="titre"> My Projects </h1>
             
             <div>
             <div className="create">
 
-            <input type="text" className="form-control" placeholder="Project name" onChange={(e)=>setName(e.target.value)}/>
-            <input type="date" className="form-control" placeholder="Start Date" onChange={(e)=>setStart(e.target.value)}/>
-            <input type="date" className="form-control" placeholder="Ending Date" onChange={(e)=>setEnd(e.target.value)} min={disablePastDate()}/>
-            <input type="text" className="form-control" placeholder="Status" onChange={(e)=>setStatus(e.target.value)}/>
+            <p> Name  </p><input type="text" className="form-control" placeholder="Project name" onChange={(e)=>setName(e.target.value)}/>
+            <p> Descrption </p> <input type="text" className="form-control" placeholder="Project description" onChange={(e)=>setDescription(e.target.value)}/>
+            <p> Image </p> <input type="file" className="form-control" placeholder="Project image" onChange={(e)=>setImage(e.target.value)} />
+            <p> Start date </p> <input type="date" className="dateinput" placeholder="Start Date" onChange={(e)=>setStart(e.target.value)}/>
+            <p> Ending date </p> <input type="date" className="dateinput" placeholder="Ending Date" onChange={(e)=>setEnd(e.target.value)} min={disablePastDate()}/>
+            <p> Status </p> <input type="text" className="form-control" placeholder="Status" onChange={(e)=>setStatus(e.target.value)}/>
             <button className="btn btn-primary" onClick={addProject} > Create </button>   
             </div>
 
@@ -102,7 +108,10 @@ function Projects () {
                             </Card.Body>        
                         </Card>
                         )} 
-                    <button className="addProject"> + NEW PROJECT </button>
+                    <div>        
+                    <button className="btn-add" onClick={() => setButtonPopup(true)}> New Project </button>
+                    <Popup trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
+            </div>
             </div> 
             </div>
         </>

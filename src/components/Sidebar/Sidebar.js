@@ -37,8 +37,8 @@ const Sidebar = (props) => {
             onSelect={selectedKey => alert(`selected ${selectedKey}`)}>
             <div className="sidebar-sticky">
             
-            <div className="divlink">
-                <GiHamburgerMenu className="icones" onClick={() => setShowSidebar(!showSidebar)}/>
+            <div className="divlink" onClick={() => setShowSidebar(!showSidebar)}>
+                <GiHamburgerMenu className="icones" />
             </div>
 
             <div className="divlink">
@@ -63,7 +63,7 @@ const Sidebar = (props) => {
             </div>
             </div>
 
-            <div className="divlogout" >
+            <div className="divlogout" onClick={logout} >
             <Nav.Item>
                 <Nav.Link className="navlink" eventKey="disabled" disabled> <BiLogOut className="icones"/> <span className="textsidebar"> LOGOUT </span> </Nav.Link>
             </Nav.Item>
@@ -77,8 +77,8 @@ const Sidebar = (props) => {
             onSelect={selectedKey => alert(`selected ${selectedKey}`)}>
             <div className="sidebar-sticky">
 
-            <div className="divlink">
-                <GiHamburgerMenu className="iconessmall" onClick={() => setShowSidebar(!showSidebar)} />
+            <div className="divlink" onClick={() => setShowSidebar(!showSidebar)} >
+                <GiHamburgerMenu className="iconessmall" />
             </div>
             
             <div className="divlink">
@@ -103,9 +103,9 @@ const Sidebar = (props) => {
             </div>
             </div>
 
-            <div className="divlogout" >
+            <div className="divlogout" onClick={logout} >
             <Nav.Item >
-                <Nav.Link className="navlink" onClick={logout}> <BiLogOut className="iconessmall"/>  </Nav.Link>
+                <Nav.Link className="navlink"> <BiLogOut className="iconessmall"/>  </Nav.Link>
             </Nav.Item>
             </div>
             </Nav>
