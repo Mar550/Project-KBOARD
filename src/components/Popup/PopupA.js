@@ -7,17 +7,18 @@ import './Popup.css';
 import axios, { Axios } from 'axios';
 
 
-function Popup(props) {
+function Popupa(props) {
 
     const [inputFields, setInputField] = useState([
         { title: '', 
+          image:'',
           description:'',
-          starting:'',
-          deadline:''
+          start:'',
+          end:''
         },
       ]);
 
-    const url = "http://127.0.0.1:8000/api/projects/addtask"
+    const url = "http://127.0.0.1:8000/api/addproject"
 
 
     const [print, setPrint] = useState(false)
@@ -45,16 +46,31 @@ function Popup(props) {
                     <form onSubmit="#">
             { inputFields.map((inputField, index) =>(
                 <div key={index} className="containerfield">
-                  <TextField
+                  <input
+                    type="text"
                     name="title"
-                    label="Title"
+                    label="Titre"
+                    placeholder="Title"
                     className= "txtfield"
                     value={inputFields.title}
                     onChange={event => handleChangeInput(index, event)}
                   />
-                  <TextField
+                  <div className="filefield">
+                    <p className="span"> Image </p>
+                  <input 
+                  type="file"
+                  name="image"
+                  label="Picture"
+                  className= "txtfield5"
+                  value={inputFields.image}
+                  onChange={event => handleChangeInput(index, event)}
+                  />
+                  </div>
+                  <input
+                    type="text"
                     name="description"
                     label="Description"
+                    placeholder="Description"
                     className= "txtfield2"
                     value={inputFields.description}
                     onChange={event => handleChangeInput(index, event)}
@@ -62,29 +78,29 @@ function Popup(props) {
                 <div className="datefield">
                 <p className="span"> Starting </p>
                 <input
-                    name="starting"
+                    name="start"
                     type="date"
                     label="Date debut"
                     className= "datefield3"
-                    value={inputFields.starting}
+                    value={inputFields.start}
                     onChange={event => handleChangeInput(index, event)}
                   />
                 </div>
                 <div className="datefield">
                 <p className="span"> Deadline </p>
                 <input
-                    name="deadline"
+                    name="end"
                     type="date"
                     label="Date Limite"
                     className= "datefield3"
-                    value={inputFields.deadline}
+                    value={inputFields.end}
                     onChange={event => handleChangeInput(index, event)}
                   />
                 </div>
             </div>             
           )) }
-              <button className="submit-btn" type="submit" onClick={handleSubmit}>
-                ADD TASK
+              <button className="submit-btn2" type="submit" onClick={handleSubmit}>
+                ADD PROJECT
               </button>
             </form>
                     
@@ -95,4 +111,4 @@ function Popup(props) {
 }
 
 
-export default Popup;
+export default Popupa;

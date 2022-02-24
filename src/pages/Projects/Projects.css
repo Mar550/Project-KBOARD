@@ -30,6 +30,7 @@ body{
 }
 
 .card{
+    margin-top: 20px;
     width: 40vh;
     margin-left: 25%;
     border-radius: 10px;
@@ -92,4 +93,15 @@ body{
 
 .maincontent{
     margin-top: 30px;
+}
+
+.addproject{
+    background-color: black;
+    color:white;
+    width:4rem;
+    font-weight: bold;
+    height: 4rem;
+    font-size: 40px;
+    border-radius: 10px;    
+    margin-left: 40%;
 }

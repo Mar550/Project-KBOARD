@@ -1,17 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import img from '../assets/404error.png';
 
 function Error() {
     return (
-        <Wrapper>
-            <h1>Error Page</h1>
-        </Wrapper>
+        <>
+            <img src={img} className="background"/>
+        </>
     )
 }
-
-const Wrapper = styled.header`
-
-`
-
 
 export default Error;

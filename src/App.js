@@ -18,6 +18,8 @@ import Board from './pages/Board/Board';
 import Testing from './pages/Testing';
 import Protected from './Protected.js';
 import UpdateProject from './pages/Projects/UpdateProject';
+import Popupb from './components/Popup/PopupB';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   
@@ -48,6 +50,14 @@ const App = () => {
 
         <Route  path='/board'>
           <Board/> 
+        </Route>
+
+        <Route path='/popup'>
+          <Popupb/>
+        </Route>
+
+        <Route path='/footer'>
+          <Footer/>
         </Route>
 
         <Route  path='/faq'>

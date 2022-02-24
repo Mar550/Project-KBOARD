@@ -19,6 +19,7 @@
     margin: auto;
     opacity: 1;
     background: white;
+    height: 26rem;
   }
 
   .close-btn{
@@ -60,8 +61,6 @@
 
   .txtfield2{
     width: 90%;
-    height: 50%;
-    margin-top: 20px;
   }
 
   .submit-btn{
@@ -69,12 +68,25 @@
       font-size: 16px;
       font-weight:bold;
       background-color: #263A69;
-      margin: 30px;
+      margin-top: 1%;
       border-radius: 5px;
       line-height: 2rem;
       width: 40%;
       float:center;
   }
+
+  .submit-btn2{
+    color: white;
+    font-size: 16px;
+    font-weight:bold;
+    background-color: #263A69;
+    margin-top: 1%;
+    border-radius: 5px;
+    line-height: 2rem;
+    width: 40%;
+    float:center;
+    margin-left: 32%;
+}
 
   .submit-btn:hover{
       cursor:pointer;
@@ -95,3 +107,24 @@
 
 }
 
+
+
+/** Form Example **/
+
+.formtask{
+  display:flex;
+  flex-direction:column;
+  width: 50%;
+  gap: 10px;
+  margin-left: 10%;
+}
+
+.filefield{
+  display: flex;
+  flex-direction: row;
+}
+
+.txtfield5{
+  margin-top: 5%;
+  margin-left: 7.5%;
+}
