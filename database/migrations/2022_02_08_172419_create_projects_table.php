@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('nameproject');
+            $table->string('description');
+            $table->string('image');
             $table->string('date_begin')->default('CURRENT_TIMESTAMP');;
             $table->string('date_ending')->default('CURRENT_TIMESTAMP');;
-            $table->string('status');
             $table->timestamps();
+            $table->foreignId('user_id')->onDelete('cascade');
         });
     }
 

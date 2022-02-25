@@ -26,10 +26,15 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function addtask(Request $req)
     {
-        $projects = Project::all();
-
+        $task = new Task;
+        $task -> task_name=$req->input('nametask');
+        $task -> description=$req->input('description');
+        $task -> date_begin=$req->input('starting');
+        $task -> date_ending=$req->input('ending');
+        $task -> save();
+        return $task;
     }
 
     /**

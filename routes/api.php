@@ -28,3 +28,11 @@ Route::post('addproject',[ProjectController::class,'addproject']);
 Route::get('listprojects',[ProjectController::class,'listprojects']);
 Route::delete('delete/{id}',[ProjectController::class,'delete']);
 Route::get('project/{id}',[ProjectController::class,'getProject']);
+
+
+Route::post('addtask',[TaskController::class,'addtask']);
+Route::get('listtasks',[TaskController::class,'show']);
+Route::delete('deletetask/{id}',[TaskController::class,'delete']);
+Route::get('task/{id}',[TaskController::class,'edit']);
+
+

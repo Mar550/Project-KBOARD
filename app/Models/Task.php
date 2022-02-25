@@ -11,8 +11,9 @@ class Task extends Model
 
     protected $guarded = [];
 
-    public function category()
+    public function task()
     {
-        return $this->belongsTo(Projects::class, 'projects_id');
+        return $this->belongsTo(Project::class, 'project_id');
     }
+
 }

@@ -17,13 +17,13 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function addproject(Request $req){
-        
+    public function addproject(Request $req){ 
         $project = new Project;
-        $project ->nameproject=$req->input('nameproject');
+        $project ->nameproject=$req->input('nameprojet');
+        $project ->description=$req->input('description');
+        $project ->image=$req->file('image');
         $project ->date_begin=$req->input('datebegin');
         $project ->date_ending=$req->input('dateending');
-        $project ->status=$req->input('status');
         $project->save();
         return $project;
     }
@@ -32,7 +32,6 @@ class ProjectController extends Controller
     public function listprojects()
     {
         return Project::all();
-
     }
 
     public function delete($id)
@@ -51,11 +50,8 @@ class ProjectController extends Controller
         return Project::find($id);
     }
 
-    
-
     public function index()
     {
-        //
         $projects = Project::withCount('tasks')->orderBy('projects.created_at','desc')->get();
     }
 
@@ -85,15 +81,6 @@ class ProjectController extends Controller
         'description.required' => 'Asmall description of the project is required',
         ]);
 
-        $path = $request->file('nameproject')->store('public/files');
-
-        Project::create([
-            'nameproject' => $request->category_name,
-            'description' => $request->description,
-            'date_begin' => $request->date_begin,
-            'date_ending' => $request->date_ending
-        ]);
-        Session::put('message', 'Category created successfully !');
 
     }
 
@@ -107,7 +94,6 @@ class ProjectController extends Controller
     {
         $task = Task::find($id)->tasks;
         $project = Project::find($id);
-
     }
 
     /**
@@ -120,7 +106,6 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $projectWithTasks = $project->tasks;
-
     }
 
     /**
@@ -135,7 +120,6 @@ class ProjectController extends Controller
         $project = Project::find($id);
         $project->nameproject = $request->nameproject;
         $project->description = $request->nameproject;
-
         $project->save();
         Session::put('update', 'item updated successfully');
     }
