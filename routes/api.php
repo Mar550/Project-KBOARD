@@ -24,15 +24,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register',[UserController::class,'register']);
 Route::post('login',[UserController::class,'login']);
-Route::post('addproject',[ProjectController::class,'addproject']);
+Route::post('create',[ProjectController::class,'create']);
 Route::get('listprojects',[ProjectController::class,'listprojects']);
 Route::delete('delete/{id}',[ProjectController::class,'delete']);
 Route::get('project/{id}',[ProjectController::class,'getProject']);
 
 
 Route::post('addtask',[TaskController::class,'addtask']);
-Route::get('listtasks',[TaskController::class,'show']);
+Route::get('listtasks',[TaskController::class,'listtasks']);
 Route::delete('deletetask/{id}',[TaskController::class,'delete']);
-Route::get('task/{id}',[TaskController::class,'edit']);
+Route::get('task/{id}',[TaskController::class,'edit']); 
 
 

@@ -17,13 +17,13 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function addproject(Request $req){ 
+    public function create(Request $req){ 
         $project = new Project;
         $project ->nameproject=$req->input('nameprojet');
         $project ->description=$req->input('description');
         $project ->image=$req->file('image');
-        $project ->date_begin=$req->input('datebegin');
-        $project ->date_ending=$req->input('dateending');
+        $project ->date_begin=$req->input('begin');
+        $project ->date_ending=$req->input('end');
         $project->save();
         return $project;
     }
@@ -60,11 +60,7 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
