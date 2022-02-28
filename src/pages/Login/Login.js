@@ -4,7 +4,7 @@ import './Login.css';
 import img from '../../assets/image1.png';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
-
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -71,7 +71,7 @@ const Login = () => {
                 </div>
                 </div>
                     <p className="loginhere">
-                        Still not registered ? <a href="#" className="loginhere-link" >Sign In here</a>
+                        Still not registered ?  <Link to="/register"> <a href="#" className="loginhere-link" >Sign In here</a> </Link>
                     </p>
                 </div>
                 </div>

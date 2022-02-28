@@ -14,12 +14,13 @@
     position: absolute;
     left: 25%;
     right: 25%;
-    top: 25%;
+    top: 15%;
     bottom: 17%;
     margin: auto;
     opacity: 1;
     background: white;
-    height: 26rem;
+    height: 79%;
+    border-radius: 10px;
   }
 
   .close-btn{
@@ -56,11 +57,13 @@
 
   .txtfield{
     width:60%;
-
+    border: 1px solid black;
   }
 
   .txtfield2{
     width: 90%;
+    border: 1px solid black;
+    height: 5rem;
   }
 
   .submit-btn{
@@ -98,6 +101,7 @@
   .datefield3{
     margin-top: 5%;
     width: 60%;
+    border: 1px solid black;
   }
 
 
@@ -131,3 +135,10 @@
   margin-top: 5%;
   margin-left: 7.5%;
 }
+
+
+
+.image{
+  border: 1px solid white;
+}
+

@@ -17,8 +17,7 @@
 }
 
 .bn3{
-    grid-column-start: 6;
-    grid-column-start: 6;
+
     width: 7.3rem;
     height: 3rem;
     font-size: 17px;
@@ -29,9 +28,13 @@
     font-weight: bold;
 }
 
+.link3{
+    grid-column-start: 6;
+
+}
+
 .bn4{
-    grid-column-start: 7;
-    grid-column-start: 7;
+
     width: 7.3rem;
     height: 3rem;
     font-size: 17px;
@@ -40,6 +43,11 @@
     border: 2px solid white;
     border-radius: 10px;
     font-weight: bold;
+}
+
+.link4{
+    grid-column-start: 7;
+
 }
 
 .bn3:hover{

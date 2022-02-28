@@ -60,18 +60,20 @@ function Popupa(props) {
                     <form onSubmit="#">
             { inputFields.map((inputField, index) =>(
                 <div key={index} className="containerfield">
+                  <div className="datefield">
+                  <p className="span"> Title </p>
                   <input
                     type="text"
                     name="title"
-                    label="Titre"
-                    placeholder="Title"
+                    label="Titre"y
                     className= "txtfield"
                     value={inputFields.nameprojet}
                     onChange={event => handleChangeInput(index, event)}
                   />
+                  </div>
                   <div className="filefield">
                     <p className="span"> Image </p>
-                  <input 
+                  <input
                   type="file"
                   name="image"
                   label="Picture"
@@ -80,15 +82,17 @@ function Popupa(props) {
                   onChange={event => handleChangeInput(index, event)}
                   />
                   </div>
+                  <div className="datefield">
+                  <p className="span"> Description </p>
                   <input
                     type="text"
                     name="description"
                     label="Description"
-                    placeholder="Description"
                     className= "txtfield2"
                     value={inputFields.description}
                     onChange={event => handleChangeInput(index, event)}
                   />
+                  </div>
                 <div className="datefield">
                 <p className="span"> Starting </p>
                 <input

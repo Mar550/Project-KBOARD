@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import img2 from '../../assets/image2.png';
@@ -84,9 +85,11 @@ function Register() {
                     <button  name="submit" id="submit" className="form-submit" onClick={Signup} > SIGN UP </button>
                 </div>
                 </div>
+                    <Link to="/">
                     <p className="loginhere">
                         Already have an account ? <a href="#" className="loginhere-link">Login here</a>
                     </p>
+                    </Link>
                 </div>
                 </div>
             </section>

@@ -81,21 +81,23 @@ function Projects () {
                                 </Link>
                             </div>
                             <Card.Img  className="img" variant="top" src={imgproject} width="180px"/>
-                            <Card.Body className="body">
+                            <Card.Body className="cardbody">
                             <div className="content"> 
                         <Card.Title className="title" >{item.nameproject}</Card.Title>
                             <Card.Text className="text">
-                                The Description...
+
+                            {item.description}
                             </Card.Text>
                             <Card.Text className="text">
-                            <span> Date: </span>
+                            <p> Date-begin: </p>
                             {item.date_begin}
                             </Card.Text>
                             <Card.Text className="text">
+                            <p> Deadline: </p>
                             {item.date_ending}
                             </Card.Text>
                             </div>
-                            <Button className="button" variant="primary"> OPEN </Button>                                
+                            <Button className="button" variant="primary"> SHOW </Button>                                
                             </Card.Body>        
                         </Card>
                         )} 
