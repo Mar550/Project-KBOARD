@@ -1,0 +1,55 @@
+.navbar{
+    background: white;
+    height: 5.8rem;
+    margin-top: -130px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(1,1fr);
+    margin-top: 1.8rem;
+    margin-left: 1rem;
+}
+
+.imglogo{
+    width: 90px;
+}
+
+.bn3{
+    grid-column-start: 6;
+    grid-column-start: 6;
+    width: 7.3rem;
+    height: 3rem;
+    font-size: 17px;
+    color: white;
+    background: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.bn4{
+    grid-column-start: 7;
+    grid-column-start: 7;
+    width: 7.3rem;
+    height: 3rem;
+    font-size: 17px;
+    color: white;
+    background: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.bn3:hover{
+    cursor:pointer;
+    background: white;
+    color:black;
+}
+
+.bn4:hover{
+    cursor:pointer;
+    background: white;
+    color:black;
+}

@@ -7,19 +7,18 @@ import './App.css';
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
-import FAQ from "./pages/FAQ";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Contact from "./pages/Contact";
 import Projects from "./pages/Projects/Projects";
-import Column from './components/Column/Column';
 import Sidebar from './components/Sidebar/Sidebar';
 import Board from './pages/Board/Board';
-import Testing from './pages/Testing';
-import Protected from './Protected.js';
+import Protected from './helpers/Protected.js';
 import UpdateProject from './pages/Projects/UpdateProject';
 import Popupb from './components/Popup/PopupB';
 import Footer from './components/Footer/Footer';
+import Navbar from './components/Navbar/Navbar';
+import Contact from './pages/Contact/Contact';
+import Private from './helpers/Private';
 
 const App = () => {
   
@@ -36,53 +35,48 @@ const App = () => {
           <Register/>
         </Route>
 
-        <Route  path='/dashboard'>
-          <Dashboard/>
-        </Route>
-
         <Route  path='/projects'>
           <Projects/>
+          {/*Protected Cmp={Projects}*/}
         </Route>
 
         <Route  path='/update/:id'>
-          <Protected Cmp={UpdateProject}/>
+          <UpdateProject/>
+          {/*Protected Cmp={UpdateProject}*/}
         </Route>
 
         <Route  path='/board'>
           <Board/> 
+            {/*Protected Cmp={Board}*/}
         </Route>
 
         <Route path='/popup'>
           <Popupb/>
+          {/*Protected Cmp={Popup}*/}
         </Route>
 
         <Route path='/footer'>
           <Footer/>
         </Route>
 
-        <Route  path='/faq'>
-          <FAQ/>
+        <Route path='/navbar'>
+          <Navbar/>
         </Route>
 
-        <Route  path='/about'>
-          <About/>
-        </Route>
 
         <Route  path='/contact'>
-          <Contact/>
+          <Contact />
         </Route>
 
         <Route  path='/sidebar'>
           <Sidebar/>
         </Route>
+
         
-        <Route  path='/column'>
-          <Column/>
+        <Route  path='/privatecontent'>
+          <Private/>
         </Route>
 
-        <Route  path='/testing'>
-          <Testing/>
-        </Route>
 
         <Route exact path='*'>
           <Error/>

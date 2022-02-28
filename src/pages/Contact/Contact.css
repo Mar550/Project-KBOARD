@@ -1,0 +1,22 @@
+.mb-3{
+    width: 60%;
+}
+
+.formcontainer{
+    background-color: white;
+    width: 65%;
+    height: 20rem;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+
+#input{
+    height: 5rem;
+}
+ 

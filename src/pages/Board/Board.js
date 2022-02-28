@@ -1,32 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import './Board.css';
 import Popup from "../../components/Popup/Popup";
 
 const itemsFromBackend = [
-  { id: 'a', title: "First task", description: "First Description", deadline:"22/02/2022"},
-  { id: 'b', title: "Second task", description: "Second Description", deadline:"22/02/2022"},
-  { id: 'c', title: "Third task", description: "Third Description", deadline:"22/02/2022"},
-  { id: 'd', title: "Fourth task", description: "Fourth Description", deadline:"22/02/2022"},
-  { id: 'e', title: "Fifth task", description: "Fifth Description", deadline:"22/02/2022"},
+  { id: 'a', title: "First task", descript: "First Description", deadline:"22/02/2022"},
+ 
+
 ];
 
-
-
 const columnsFromBackend = {
-  ['a']: {
+  [1]: {
     name: "To Do",
-    items: itemsFromBackend
+    items: [itemsFromBackend]
   },
-  ['b']: {
+  [2]: {
     name: "In Progress",
     items: []
   },
-  ['c']: {
+  [3]: {
     name: "On Hold",
     items: []
   },
-  ['d']: {
+  [4]: {
     name: "Done",
     items: []
   }
@@ -34,7 +30,9 @@ const columnsFromBackend = {
 
 
 
+
 const onDragEnd = (result, columns, setColumns) => {
+
   if (!result.destination) return;
   const { source, destination } = result;
 
@@ -78,7 +76,17 @@ function Board() {
   const[dataBoard,setDataBoard]= useState([]);
   const[dataTask,setDataTask]= useState([]);
 
+  const [data,setData]=useState([]);
+
+  useEffect( async() => {
+  let result = await fetch("http://127.0.0.1:8000/api/listtasks")
+  result = await result.json();
+  setData(result)
+  console.log(result)
+  },[])
+
   const addBoard = async() => {
+  
 
   }
 
@@ -99,33 +107,38 @@ function Board() {
               key={columnId}
             >
               <h2>{column.name}</h2>
-              <div style={{ margin: 8 }}>
+              <div style={{ margin: 12 }}>
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
+                       
                       <div
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         className="columns"
                         style={{
                           background: snapshot.isDraggingOver
-                            ? "lightblue"
-                            : "lightgrey",
-                          padding: 4,
+                          ? "lightblue"
+                          : "lightgrey",
+                          padding: 10,
                           width: 250,
-                          minHeight: 500
-                          
+                          minHeight: 500,                                                
                         }}
                       >
                         {column.items.map((item, index) => {
                           return (
+                            <>
+                          {data.map((item) =>
+                            
                             <Draggable
                               key={item.id}
-                              draggableId={item.id}
+                              draggableId={item.task_name}
                               index={index}
                             >
                               {(provided, snapshot) => {
                                 return (
+                                  
+
                                   <div
                                     className="cards"
                                     ref={provided.innerRef}
@@ -133,7 +146,7 @@ function Board() {
                                     {...provided.dragHandleProps}
                                     style={{
                                       userSelect: "none",
-                                      padding: 16,
+                                      padding: 25,
                                       margin: "0 0 8px 0",
                                       minHeight: "50px",
                                       backgroundColor: snapshot.isDragging
@@ -142,22 +155,33 @@ function Board() {
                                       opacity: snapshot.isDragging  
                                         ? "0.2"
                                         : "0.8",
-                                    
+                                      
                                       color: "white",
                                       ...provided.draggableProps.style
                                     }}
                                   >
-                                    <h1 className="title">{item.title} </h1> <hr className="line"/>
+                                    <h1 className="title">{item.task_name} </h1> <hr className="line"/>
                                     <h3>{item.description}</h3>
                                     <div className="limitedate">
-                                    <p className="card-text"> Date Limite:</p>
-                                    <p>{item.deadline}</p>
+                                    <p className="card-text"> Starting:</p>
+                                    <p>{item.date_begin}</p>
+                                    </div>
+                                    <div className="limitedate">
+                                    <p className="card-text"> Deadline:</p>
+                                    <p>{item.date_ending}</p>
                                     </div>
                                     
                                   </div>
+                                    
+
                                 );
+                                
                               }}
+
                             </Draggable>
+                            )}
+                                
+                            </>
                           );
                         })}
                         {provided.placeholder}

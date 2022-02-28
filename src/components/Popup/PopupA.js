@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import TextField from '@material-ui/core/TextField';
-import DatePicker, { setDefaultLocale } from "react-datepicker";
+import DatePicker, { getDefaultLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {CgCloseR} from 'react-icons/cg';
 import './Popup.css';
@@ -10,10 +10,10 @@ import axios, { Axios } from 'axios';
 function Popupa(props) {
 
     const [inputFields, setInputField] = useState([
-        { title: '', 
+        { nameprojet: '',
+          description:'', 
           image:'',
-          description:'',
-          start:'',
+          begin:'',
           end:''
         },
       ]);
@@ -29,13 +29,27 @@ function Popupa(props) {
         setInputField(values);
         
       }  
-    
+      
+      const result = inputFields[0];
+      let data = JSON.stringify(result);
+
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log(inputFields);
+        console.log(result);
+        let data = JSON.stringify(result);
+        axios
+          .post('http://127.0.0.1:8000/api/create',data,
+          {headers:{"Content-Type" : "application/json"}})
       }
 
-      
+      const secondSubmit = async () => {
+        console.log(inputFields);
+        console.log(result);
+
+
+      }  
+
     
     return (props.trigger) ? (
         <>
@@ -52,7 +66,7 @@ function Popupa(props) {
                     label="Titre"
                     placeholder="Title"
                     className= "txtfield"
-                    value={inputFields.title}
+                    value={inputFields.nameprojet}
                     onChange={event => handleChangeInput(index, event)}
                   />
                   <div className="filefield">
@@ -82,7 +96,7 @@ function Popupa(props) {
                     type="date"
                     label="Date debut"
                     className= "datefield3"
-                    value={inputFields.start}
+                    value={inputFields.begin}
                     onChange={event => handleChangeInput(index, event)}
                   />
                 </div>

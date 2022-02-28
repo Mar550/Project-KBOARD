@@ -1,14 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import './Login.css';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import img from '../../assets/image1.png';
-import img2 from '../../assets/image2.png';
-import {RiLockPasswordFill} from 'react-icons/ri';
-import {IoPersonCircleSharp} from 'react-icons/io5';
-import styled from 'styled-components';
-import logowhite from '../../assets/K (1).png';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+
 
 const Login = () => {
 
@@ -41,16 +37,13 @@ const Login = () => {
 
     return (
         <>
-            <div className="navbar">
-                <img src={logowhite} width="85px" className="imglogo"/>
-                <button className="bn3">HELP</button>
-                <button className="bn4">SIGNUP</button>
-            </div>
+            <Navbar/>
             <div className="divrow">
             
             <div className="divcol1">
                 <div className="texttitle"> 
                     <h1 className="maintitle"> Gérez tous vos projets... </h1>
+                    <br/>
                     <h1 className="subtitle"> en une seule plateforme. </h1>
                 </div>
                 <img className="img" src={img}/>
@@ -69,7 +62,7 @@ const Login = () => {
                     <input type="email" className="form-input" name="email" id="email" placeholder="Enter your Email" onChange={(e)=>setEmail(e.target.value)}/>
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-input" name="password" id="password" placeholder="Password" placeholder="Enter your Email" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="password" className="form-input" name="password" id="password" placeholder="Password" placeholder="Enter your Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
                 </div>
 
@@ -87,6 +80,7 @@ const Login = () => {
             
             </div>
         </div>
+        <Footer/>
     </>
     )
 }
