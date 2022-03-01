@@ -3,8 +3,10 @@ import TextField from '@material-ui/core/TextField';
 import DatePicker, { getDefaultLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {CgCloseR} from 'react-icons/cg';
+import {FaClipboardList} from 'react-icons/fa';
 import './Popup.css';
 import axios, { Axios } from 'axios';
+
 
 
 function Popupa(props) {
@@ -53,74 +55,83 @@ function Popupa(props) {
     
     return (props.trigger) ? (
         <>
+          
             <div className="popup">
-                <div className="popup-inner">
+                <div className="signup-form">
                     <CgCloseR className="close-btn" onClick={() => props.setTrigger(false)}/>
                     { props.children }
-                    <form onSubmit="#">
             { inputFields.map((inputField, index) =>(
-                <div key={index} className="containerfield">
-                  <div className="datefield">
-                  <p className="span"> Title </p>
-                  <input
-                    type="text"
-                    name="title"
-                    label="Titre"y
-                    className= "txtfield"
-                    value={inputFields.nameprojet}
-                    onChange={event => handleChangeInput(index, event)}
-                  />
-                  </div>
-                  <div className="filefield">
-                    <p className="span"> Image </p>
-                  <input
-                  type="file"
-                  name="image"
-                  label="Picture"
-                  className= "txtfield5"
-                  value={inputFields.image}
-                  onChange={event => handleChangeInput(index, event)}
-                  />
-                  </div>
-                  <div className="datefield">
-                  <p className="span"> Description </p>
-                  <input
-                    type="text"
-                    name="description"
-                    label="Description"
-                    className= "txtfield2"
-                    value={inputFields.description}
-                    onChange={event => handleChangeInput(index, event)}
-                  />
-                  </div>
-                <div className="datefield">
-                <p className="span"> Starting </p>
-                <input
-                    name="start"
-                    type="date"
-                    label="Date debut"
-                    className= "datefield3"
-                    value={inputFields.begin}
-                    onChange={event => handleChangeInput(index, event)}
-                  />
+                <div className="container">
+                <div className="signup-content">
+                <h2 className="form-title"> <FaClipboardList/> Create a new project</h2>
+                    <form >
+                    <div  id="signup-form" className="signup-form" key={index}>                            
+                        <div className="form-group">
+                            <input 
+                            className="form-input" 
+                            type="text"
+                            name="nameprojet"
+                            id="text"
+                            placeholder="Titre"
+                            value={inputFields.nameprojet}
+                            onChange={event => handleChangeInput(index, event)}/>
+                        </div>
+            
+                        <div className="form-group">
+                            <input 
+                            className="form-input" 
+                            type="text"
+                            name="description"
+                            id="description"
+                            placeholder="Description"
+                            value={inputFields.description}
+                            onChange={event => handleChangeInput(index, event)}/>
+                        </div>
+
+                        <div className="form-group" id="fileavatar">
+                            <span className="spanfile"> Choose an image </span>
+                            <input 
+                            type="file" 
+                            className="form-input" 
+                            name="image" 
+                            id="files"  
+                            value={inputFields.image}
+                            onChange={event => handleChangeInput(index, event)} />
+                        </div>
+            
+                        <div className="form-group">
+                            <span className="spanfile"> Starting Date </span>
+                            <input 
+                            type="date" 
+                            className="form-input" 
+                            name="begin"
+                            value={inputFields.begin}
+                            onChange={event => handleChangeInput(index, event)}/>
+                        </div>
+            
+                        <div className="form-group">
+                            <span className="spanfile"> Ending Date </span>
+                            <input 
+                            type="date" 
+                            className="form-input" 
+                            name="end"
+                            value={inputFields.end}
+                            onChange={event => handleChangeInput(index, event)}/>
+                        </div>
+            
+                    
                 </div>
-                <div className="datefield">
-                <p className="span"> Deadline </p>
-                <input
-                    name="end"
-                    type="date"
-                    label="Date Limite"
-                    className= "datefield3"
-                    value={inputFields.end}
-                    onChange={event => handleChangeInput(index, event)}
-                  />
-                </div>
+                <div className="form-group">
+                        <button  type="submit" name="submit" id="submit" className="form-submit" onClick={handleSubmit}> 
+                        ADD NEW BOARD 
+                        </button>
+                    </div>
+                </form>
+            
+            </div>
             </div>             
           )) }
-              <button className="submit-btn2" type="submit" onClick={handleSubmit}>
-                ADD PROJECT
-              </button>
-            </form>
+              
                     
                 </div>
             </div>

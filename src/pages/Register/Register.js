@@ -85,7 +85,7 @@ function Register() {
                     <button  name="submit" id="submit" className="form-submit" onClick={Signup} > SIGN UP </button>
                 </div>
                 </div>
-                    <Link to="/">
+                    <Link to="/projects">
                     <p className="loginhere">
                         Already have an account ? <a href="#" className="loginhere-link">Login here</a>
                     </p>

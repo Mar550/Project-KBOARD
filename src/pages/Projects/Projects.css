@@ -86,7 +86,8 @@ body{
 
 .actionicon{
     font-size: 25px;
-    color:black;
+    color:white;
+    float: right;
 }
 
 .actionicon:hover{

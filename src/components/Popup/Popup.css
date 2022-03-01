@@ -142,3 +142,27 @@
   border: 1px solid white;
 }
 
+
+
+/** POPUP A NEW **/
+
+#submit{
+  margin-top: 1.5rem;
+}
+.signup-content{
+  height: 40.3rem;
+  margin-top: 2rem;
+  opacity: 0.9;
+
+}
+
+#description{
+  height: 5rem;
+}
+
+
+.form-group{
+  display: flex;
+  flex-direction: row;
+}
+

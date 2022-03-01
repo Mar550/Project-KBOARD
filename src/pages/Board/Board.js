@@ -5,7 +5,7 @@ import Popup from "../../components/Popup/Popup";
 
 const itemsFromBackend = [
   { id: 'a', title: "First task", descript: "First Description", deadline:"22/02/2022"},
- 
+  
 
 ];
 
