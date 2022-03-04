@@ -1,22 +1,104 @@
-.mb-3{
+.projectcontainer{
     width: 60%;
-}
-
-.formcontainer{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-color: white;
-    width: 65%;
-    height: 20rem;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    border-radius: 10px;
+    opacity: 0.8;
+    box-shadow: 5px 5px 5px  black; 
+
+}
+
+
+.row2{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    margin-bottom: 25px;
+}
+
+.colleft{
+    width:70%;
+}
+
+.colright{
+    width: 70%;
+}   
+
+.tabledaates{
+    margin-top: 5px;
+}
+
+
+.row1{
+    float: right;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.icon{
+    font-size: 22px;
+}
+
+.icon:hover{
+    cursor:pointer;
+    font-size: 25px;
+}
+
+.showbutton{
+    background-color: orange;
+    opacity: 1;
+    border: none;
+    width: 50%;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    color:white;
+    border-radius: 5px;
+    height: 3rem;
+}
+
+.showbutton:hover{
+    background-color: black;
+    font-size: 19px;
+}
+
+.img{
+    border: none;
+}
+
+.rowdate{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }
 
 
 
-#input{
-    height: 5rem;
+
+.divbtnp{
+    margin-top: 30px;
 }
- 
+.btn-add-project{
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 16%;
+    display: block;
+    margin-left: AUTO;  
+    margin-right: AUTO;
+    position: sticky;
+    border-radius: 5px;
+    height: 3.2rem;
+}
+
+.btn-add-project:hover{
+    cursor: pointer;
+    background-color: white;
+    color:black;
+    border: none;
+}

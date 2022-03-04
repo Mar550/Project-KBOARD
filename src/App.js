@@ -19,6 +19,8 @@ import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Contact from './pages/Contact/Contact';
 import Private from './helpers/Private';
+import SearchProject from './pages/Projects/SearchProject';
+
 
 const App = () => {
   
@@ -34,6 +36,12 @@ const App = () => {
         <Route  path='/register'>
           <Register/>
         </Route>
+
+        <Route  path='/search'>
+          <SearchProject/>
+        </Route>
+
+        
 
         <Route  path='/projects'>
           <Projects/>

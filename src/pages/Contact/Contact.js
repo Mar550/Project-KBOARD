@@ -1,43 +1,44 @@
 import React from "react";
-import {FaMapMarkerAlt} from 'react-icons/fa';
-import {FaPhone} from 'react-icons/fa';
-import {MdOutlineAlternateEmail} from 'react-icons/md';
+import {AiOutlineEdit} from 'react-icons/ai';
+import {RiDeleteBin5Fill} from 'react-icons/ri';
 import './Contact.css';
-import { Form } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-
+import img from '../../assets/img.jpeg';
 const Contact = () => {
     
   return (
 
     <>
-      <Form className="formcontainer">
-
-        <div className="column">         
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group> 
-          <Form.Group className="mb-3">
-            <Form.Label> You are </Form.Label>
-            <Form.Select>
-              <option>A person </option>
-              <option>A team </option>
-              <option>A company</option>
-            </Form.Select>
-          </Form.Group>
-          <Form.Group id="input" className="mb-4">
-            <Form.Label> Message </Form.Label>
-            <Form.Control placeholder="Disabled input"  />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-          </div>
-      </Form>
+		<div className="projectcontainer">
+			<div className="row1">
+				<AiOutlineEdit className="icon"/>
+				<RiDeleteBin5Fill className="icon"/>
+			</div>
+			<div className="row2">
+			<div className="colleft" >
+				<img className="img" src={img}/>
+			</div>
+			<div className="colright">
+				<h1>
+					Title: Name of project
+				</h1>
+				<p>
+					Description: Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.
+				</p>
+				<div className="tabledaates">
+					<div className="rowdate">
+						<p> Starting:</p>
+						<p> XX/XX/XXXX </p>						
+					</div>
+					<div className="rowdate">
+						<p> Ending:</p>
+						<p> XX/XX/XXXX </p>							
+					</div>
+				</div>
+				<button className="showbutton"> SHOW
+				</button>			
+			</div>
+			</div>
+		</div>
     </>
   )
 }

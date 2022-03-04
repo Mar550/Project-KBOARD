@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import './Projects.css';
-import {Card, Button} from 'react-bootstrap';
+import '../Contact/Contact.css';
 import imgproject from '../../assets/projectimg.jpeg';
 import {AiOutlineEdit} from 'react-icons/ai';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
-import {SiAddthis} from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import Popup from './PopupProject';
 import Popupa from '../../components/Popup/PopupA';
+import img from '../../assets/img.jpeg';
+import {GoPlus} from 'react-icons/go';
 
 function Projects () {
     
@@ -66,53 +65,52 @@ function Projects () {
     console.warn("result",data)
     return (
         <>
-            <div className="maincontent">
-            <h1 className="titre"> My Projects </h1>
+       
+        { 
+            data.map((item)=>
+            <div className="projectcontainer">
+                <div className="row1">
+                    <Link to={"update/"+item.id}>
+                    <AiOutlineEdit className="icon"/>
+                    </Link>
+                    <RiDeleteBin5Fill className="icon" onClick={()=>deleteProject(item.id)}/>
+                </div>
+                <div className="row2">
+                <div className="colleft" >
+                    <img className="img" src={img}/>
+                </div>
+                <div className="colright">
+                    <h1 className="titlep">
+                         {item.nameproject}
+                    </h1>
+                    <h3 className="descriptionp">
+                         {item.description}
+                    </h3 >
+                    <div className="tabledates">
+                        <div className="rowdate">
+                            <p> Starting:</p>
+                            <p> {item.date_begin} </p>						
+                        </div>
+                        <div className="rowdate">
+                            <p> Ending:</p>
+                            <p> {item.date_ending} </p>							
+                        </div>
+                    </div>
+                    <button className="showbutton"> SHOW
+                    </button>			
+                </div>
+                </div>
+            </div>
+        )} 
+
+            <div> 
+                <div className="divbtnp">     
+                        <button className="btn-add-project" onClick={() => setButtonPopup(true)}>  New Project  </button>
+                </div> 
+                <Popupa trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
+            </div>
+
             
-            <div>
-            <div className="containercards" >       
-                    { 
-                        data.map((item)=>
-                        <Card className="card" style={{ width: '41vh' }}>
-                            <div>
-                                <AiOutlineEdit className="actionicon"/>
-                                <Link to={"update/"+item.id}>
-                                <RiDeleteBin5Fill className="actionicon" onClick={()=>deleteProject(item.id)}/>
-                                </Link>
-                            </div>
-                            <Card.Img  className="img" variant="top" src={imgproject} width="180px"/>
-                            <Card.Body className="cardbody">
-                            <div className="content"> 
-                        <Card.Title className="title" >{item.nameproject}</Card.Title>
-                            <Card.Text className="text">
-
-                            {item.description}
-                            </Card.Text>
-                            <Card.Text className="text">
-                            <p> Date-begin: </p>
-                            {item.date_begin}
-                            </Card.Text>
-                            <Card.Text className="text">
-                            <p> Deadline: </p>
-                            {item.date_ending}
-                            </Card.Text>
-                            </div>
-                            <Button className="button" variant="primary"> SHOW </Button>                                
-                            </Card.Body>        
-                        </Card>
-                        )} 
-                    <div> 
-                    <div>     
-                    <Card className="card" style={{ width: '41vh' }}> 
-                    <button className="addproject" onClick={() => setButtonPopup(true)}>  <SiAddthis/> </button>
-                    </Card>
-
-                    </div> 
-                    <Popupa trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
-            </div>
-            </div> 
-            </div>
-            </div>
         </>
     )
 }
