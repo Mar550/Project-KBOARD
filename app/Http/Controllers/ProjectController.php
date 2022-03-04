@@ -101,7 +101,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        $projectWithTasks = $project->tasks;
+        return response()->json($project);
     }
 
     /**
@@ -113,11 +113,14 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $project = Project::find($id);
-        $project->nameproject = $request->nameproject;
-        $project->description = $request->nameproject;
-        $project->save();
-        Session::put('update', 'item updated successfully');
+        $project = Project::find($id)->update([
+        'nameproject' => $request->name,
+        'description' => $request->description,
+        'image' => $request->image,
+        'date_begin' => $request->begin,
+        'date_ending' => $request->end
+        ]);
+        return response()->json($project); 
     }
 
     /**

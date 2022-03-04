@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
             $table->foreignId('project_id')->onDelete('cascade');
+            
         });
     }
 

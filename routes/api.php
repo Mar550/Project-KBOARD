@@ -26,13 +26,26 @@ Route::post('register',[UserController::class,'register']);
 Route::post('login',[UserController::class,'login']);
 Route::post('create',[ProjectController::class,'create']);
 Route::get('listprojects',[ProjectController::class,'listprojects']);
-Route::delete('delete/{id}',[ProjectController::class,'delete']);
 Route::get('project/{id}',[ProjectController::class,'getProject']);
+Route::get('project/{id}/edit',[ProjectController::class,'edit']);
+Route::put('project/{id}/update',[ProjectController::class,'update']);
+Route::delete('delete/{id}',[ProjectController::class,'delete']);
 
 
+ 
 Route::post('addtask',[TaskController::class,'addtask']);
 Route::get('listtasks',[TaskController::class,'listtasks']);
 Route::delete('deletetask/{id}',[TaskController::class,'delete']);
 Route::get('task/{id}',[TaskController::class,'edit']); 
 
+
+/*
+Route::get('project/{id}/board',[BoardController::class,'show']);
+
+Route::post('project/{id}/board/create',[BoardController::class,'create']);
+Route::get('project/{id}/board/show',[BoardController::class,'show']);
+Route::delete('project/{id}/board/delete/{id}',[BoardController::class,'edit']);
+Route::get('project/{id}/board/edit/{id}',[BoardController::class,'edit']);
+
+*/
 
