@@ -17,8 +17,7 @@ const [image, setImage] = useState("")
 const [start, setStart] = useState("")
 const [end, setEnd] = useState("")
 const [validationError,setValidationError] = useState({})
-
-const [data,setData]=useState("");
+const [data, setData] =useState("");
 
 
 useEffect(() => {

@@ -48,21 +48,23 @@
 }
 
 .showbutton{
-    background-color: orange;
+    background-color: white;
     opacity: 1;
-    border: none;
-    width: 50%;
+    border: 2px solid black;
+    width: 40%;
     margin-top: 10px;
     font-weight: bold;
     font-size: 17px;
-    color:white;
+    color:black;
     border-radius: 5px;
     height: 3rem;
 }
 
 .showbutton:hover{
     background-color: black;
-    font-size: 19px;
+    color:white;
+    cursor: pointer;
+    font-size: 17px;
 }
 
 .img{

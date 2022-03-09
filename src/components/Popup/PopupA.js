@@ -22,14 +22,14 @@ function Popupa(props) {
 
     const url = "http://127.0.0.1:8000/api/addproject"
 
-
+    const [trigger, setTrigger] = useState(false)
     const [print, setPrint] = useState(false)
     
       const handleChangeInput = (index, event) => {
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
         setInputField(values);
-        
+
       }  
       
       const result = inputFields[0];
@@ -42,14 +42,13 @@ function Popupa(props) {
         let data = JSON.stringify(result);
         axios
           .post('http://127.0.0.1:8000/api/create',data,
-          {headers:{"Content-Type" : "application/json"}})
+          {headers:{"Content-Type" : "application/json"}}).then(response =>{window.location.reload()})
+        props.setTrigger(false);
       }
 
       const secondSubmit = async () => {
         console.log(inputFields);
         console.log(result);
-
-
       }  
 
     
@@ -57,18 +56,14 @@ function Popupa(props) {
         <Wrapper>
           
             <div className="popup">
-
                 <div className="signup-form">
-
                     { props.children }
             { inputFields.map((inputField, index) =>(
 
                 <div className="container">
-
                 <div className="signup-content">
-
                 <h2 className="form-title"> <FaClipboardList/> Create a new project</h2>                    
-                    <form >
+                    <form>
                     <div  id="signup-form" className="signup-form" key={index}>                            
                         <div className="form-group" id="form-group">
                             <input 
@@ -125,9 +120,9 @@ function Popupa(props) {
             
                     
                 </div>
-                <div className="form-group" id="buttons">
+                  <div className="form-group" id="buttons">
                         <button  type="submit" name="submit" id="submit" className="form-submit" onClick={handleSubmit}> 
-                        ADD NEW BOARD 
+                         NEW PROJECT 
                         </button>
                         <button  type="submit" name="submit" id="submit" className="form-submit" onClick={() => props.setTrigger(false)}> 
                         CLOSE
@@ -300,10 +295,14 @@ border: 1px solid white;
 margin-top: 1.5rem;
 }
 
+#submit:hover{
+  cursor: pointer;
+  }
+
 .signup-content{
 height: 41rem;
-margin-top: 2rem;
-opacity: 0.9;
+margin-top: 1rem;
+opacity: 1;
 }
 
 #description{

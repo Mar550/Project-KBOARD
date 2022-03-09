@@ -17,11 +17,9 @@ body{
     width: 40%;
     margin-left: auto;
     margin-right: auto;
-    height: 50%;
     color:black;
     box-shadow: 0 3px 10px black;
     border-radius: 15px;
-
 }
     
   .divcol{
@@ -60,6 +58,9 @@ body{
   font-size: 14px;
 }
 
+.signup-content{
+  margin-top: 170px;
+}
 
 .container {
   width: 700px;

@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import img2 from '../../assets/image2.png';
 import './Register.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 function Register() {
 
@@ -29,7 +31,7 @@ function Register() {
     
 
     const Signup = async () => {
-        let user = {firstname,lastname, username,email,password,passwordConf,avatar};
+        let user = {firstname,lastname,username,email,password,passwordConf,avatar};
         console.warn(user);
         
         let result= await fetch("http://127.0.0.1:8000/api/register",{
@@ -46,7 +48,9 @@ function Register() {
         history.push ("/")
     }
     return (
-            <div className="main">
+            <>
+            <Navbar/>
+            <div className="containermain">
                 <section className="signup">
                 <img src="#" alt=""/> 
                 <div className="container">
@@ -93,7 +97,9 @@ function Register() {
                 </div>
                 </div>
             </section>
-            </div>        
+            </div> 
+            <Footer/>
+            </>       
     )
 }
 
