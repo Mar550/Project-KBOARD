@@ -23,8 +23,7 @@ function Popup(props) {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputFields);
-        
+        console.log(inputFields);    
       }
     
     return (props.trigger) ? (

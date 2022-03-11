@@ -70,7 +70,7 @@ function Projects () {
             data.map((item)=>
             <div className="projectcontainer">
                 <div className="row1">
-                    <Link to={"update/"+item.id}>
+                    <Link to={`update/${item.id}`}>
                     <AiOutlineEdit className="icon"/>
                     </Link>
                     <RiDeleteBin5Fill className="icon" onClick={()=>deleteProject(item.id)}/>

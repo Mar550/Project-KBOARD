@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router';
 
+
 const UpdateProject = () => {
 
 const history = useHistory();  
@@ -17,7 +18,6 @@ const [image, setImage] = useState("")
 const [start, setStart] = useState("")
 const [end, setEnd] = useState("")
 const [validationError,setValidationError] = useState({})
-const [data, setData] =useState("");
 
 
 useEffect(() => {

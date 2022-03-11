@@ -46,7 +46,7 @@ const App = () => {
           {/*Protected Cmp={Projects}*/}
         </Route>
 
-        <Route  path='/update'>
+        <Route  path='/update/:id'>
           <Update/>
           {/*Protected Cmp={UpdateProject}*/}
         </Route>
