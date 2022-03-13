@@ -11,8 +11,8 @@ class Board extends Model
     
     protected $guarded=[];
 
-    public function board() 
+    public function project() 
     {
-        return $this->belongsTo(Board::class,'project_id');
+        return $this->belongsTo(Project::class,'project_id');
     }
 }

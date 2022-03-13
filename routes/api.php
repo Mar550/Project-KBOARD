@@ -18,23 +18,31 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register',[UserController::class,'register']);
+
 Route::post('login',[UserController::class,'login']);
 Route::post('create',[ProjectController::class,'create']);
 Route::get('listprojects',[ProjectController::class,'listprojects']);
 Route::get('project/{id}',[ProjectController::class,'getProject']);
 Route::get('project/{id}/edit',[ProjectController::class,'edit']);
-Route::put('project/{id}/update',[ProjectController::class,'update']);
+Route::put('update/{id}',[ProjectController::class,'update']);
 Route::delete('delete/{id}',[ProjectController::class,'delete']);
 
 
  
-Route::post('addtask',[TaskController::class,'addtask']);
-Route::get('listtasks',[TaskController::class,'listtasks']);
+Route::post('task/create',[TaskController::class,'create']);
+Route::get('listtasks',[TaskController::class,'list']);
+Route::get('task/{id}',[TaskController::class,'show']);
+Route::get('edit/task/{id}',[TaskController::class,'edit']);
+Route::get('update/task/{id}',[TaskController::class,'update']);
+Route::get('delete/task/{id}',[TaskController::class,'delete']);
+
+
+
 Route::delete('deletetask/{id}',[TaskController::class,'delete']);
 Route::get('task/{id}',[TaskController::class,'edit']); 
 

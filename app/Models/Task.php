@@ -11,7 +11,7 @@ class Task extends Model
 
     protected $guarded = [];
 
-    public function task()
+    public function project()
     {
         return $this->belongsTo(Project::class, 'project_id');
     }

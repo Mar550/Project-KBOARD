@@ -19,6 +19,8 @@ class TaskController extends Controller
         $tasks = Task::join('projects','tasks.project_id','=','projects.id')
         ->select('tasks.id','tasks.task_name','tasks.date_begin','tasks.date_ending','tasks.description')
         ->orderBy('tasks.created_at','desc')->get();
+
+        return $tasks;
     }
 
     /**
@@ -26,13 +28,14 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function addtask(Request $req)
+    public function create(Request $req)
     {
         $task = new Task;
         $task -> task_name=$req->input('nametask');
         $task -> description=$req->input('description');
         $task -> date_begin=$req->input('starting');
         $task -> date_ending=$req->input('ending');
+        $task -> project_id=$req->input('project_id');
         $task -> save();
         return $task;
     }

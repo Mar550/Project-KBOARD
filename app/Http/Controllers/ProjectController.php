@@ -7,7 +7,9 @@ use App\Models\Project;
 use App\Models\Task;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Session\Store;
 
 class ProjectController extends Controller
 {
@@ -21,13 +23,12 @@ class ProjectController extends Controller
         $project = new Project;
         $project ->nameproject=$req->input('nameprojet');
         $project ->description=$req->input('description');
-        $project ->image=$req->file('image');
+        $project ->image=$req->input('image');
         $project ->date_begin=$req->input('begin');
         $project ->date_ending=$req->input('end');
         $project->save();
         return $project;
     }
-
 
     public function listprojects()
     {
@@ -46,7 +47,8 @@ class ProjectController extends Controller
         }
     }
 
-    public function getProject($id){
+    public function getProject($id)
+    {
         return Project::find($id);
     }
 
@@ -69,15 +71,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nameproject' => 'require|string',
-            'description' => 'required|string',
-        ],[
-        'nameproject.required' => 'The name of the project is required',
-        'description.required' => 'Asmall description of the project is required',
-        ]);
-
-
+   
     }
 
     /**
@@ -98,10 +92,25 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         $project = Project::find($id);
-        return response()->json($project);
+        if($project)
+        {
+            return response()->json([
+                'status'=>200,
+                'project'=>$project,
+            ]);
+        }
+        else 
+        {
+            return response()->json([
+                'status'=>404,
+                'message'=>'No Product Found',
+            ]);
+                
+        }
     }
 
     /**
@@ -111,18 +120,27 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    
+  
+
+    public function update(Request $req, $id)
     {
-        $project = Project::find($id)->update([
-        'nameproject' => $request->name,
-        'description' => $request->description,
-        'image' => $request->image,
-        'date_begin' => $request->begin,
-        'date_ending' => $request->end
+        $project = Project::find($id);
+        $project->nameproject = $req->input('nameprojet');
+        $project->description = $req->input('description');
+        $project->image = $req->input('image');
+        $project->date_begin = $req->input('begin');
+        $project->date_ending = $req->input('end');
+        $project->save();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=>'Updated Successfully',
         ]);
-        return response()->json($project); 
     }
 
+
+    
     /**
      * Remove the specified resource from storage.
      *

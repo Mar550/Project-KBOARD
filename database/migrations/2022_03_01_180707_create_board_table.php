@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('board', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->timestamps();
-            $table->foreignId('project_id')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *

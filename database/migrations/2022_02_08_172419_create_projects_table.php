@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('image');
             $table->string('date_begin')->default('CURRENT_TIMESTAMP');;
             $table->string('date_ending')->default('CURRENT_TIMESTAMP');;
+            $table->unsignedBigInteger('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->timestamps();
-            $table->foreignId('user_id')->onDelete('cascade');
         });
     }
 
