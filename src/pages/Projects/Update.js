@@ -19,7 +19,6 @@ function Update(props) {
     const updateProject = async () => {
         console.warn(name, description, image, start, end)
         const formData = new FormData();
-        formData.append('_method', 'PATCH');
         formData.append('nameprojet',name);
         formData.append('description',description);
         formData.append('image',image);
@@ -29,19 +28,19 @@ function Update(props) {
             method: 'PUT',
             body: formData
         });
-        console.log(name, description, image, start, end)
+        console.log({name, description, image, start, end})
+        console.log(formData)
         alert(" Project Updated ")
     }
 
     return (
         <div className="container">
                 <h1> Update Project</h1>
-                <input type="text" name="nameprojet" value={name} onChange = {(event)=>{setName(event.target.value)}} />
-                <input type="text" name="description" value={description} onChange = {(event)=>{setDescription(event.target.value)}}  />
-                <input type="file" name="iamge" value={image} onChange = {(event)=>{setImage(event.target.value)}}  />
-                <input type="date" name="begin" value={start} onChange = {(event)=>{setStart(event.target.value)}} />
-                <input type="date" name="end" value={end} onChange = {(event)=>{setEnd(event.target.value)}} />
-
+                <input type="text" name="nameprojet" value={data} onChange={(event)=>{setName(event.target.value)}} />
+                <input type="text" name="description" value={description} onChange={(event)=>{setDescription(event.target.value)}}  />
+                <input type="file" name="iamge" value={image} onChange={(event)=>{setImage(event.target.value)}}  />
+                <input type="date" name="begin" value={start} onChange={(event)=>{setStart(event.target.value)}} />
+                <input type="date" name="end" value={end} onChange={(event)=>{setEnd(event.target.value)}} />
             <button onClick={() => updateProject()} > EDIT </button>
         </div> 
     )

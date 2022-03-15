@@ -2,32 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import './Board.css';
 import Popup from "../../components/Popup/Popup";
-
-const itemsFromBackend = [
-  { id: 'a', title: "First task", descript: "First Description", deadline:"22/02/2022"},
-  
-
-];
-
-const columnsFromBackend = {
-  [1]: {
-    name: "To Do",
-    items: [itemsFromBackend]
-  },
-  [2]: {
-    name: "In Progress",
-    items: []
-  },
-  [3]: {
-    name: "On Hold",
-    items: []
-  },
-  [4]: {
-    name: "Done",
-    items: []
-  }
-};
-
+import Popupb from "../../components/Popup/PopupB";
 
 
 
@@ -70,26 +45,45 @@ const onDragEnd = (result, columns, setColumns) => {
 };
 
 function Board() {
+
+  const itemsFromBackend = [
+   
+  ];
+  
+  const columnsFromBackend = {
+    [1]: {
+      name: "To Do",
+      items: [data]
+    },
+    [2]: {
+      name: "In Progress",
+      items: []
+    },
+    [3]: {
+      name: "On Hold",
+      items: []
+    },
+    [4]: {
+      name: "Done",
+      items: []
+    }
+  };
   const [columns, setColumns] = useState(columnsFromBackend);
   const [buttonPopup, setButtonPopup] = useState(false);
   
-  const[dataBoard,setDataBoard]= useState([]);
-  const[dataTask,setDataTask]= useState([]);
 
   const [data,setData]=useState([]);
 
-  useEffect( async() => {
+  let result = useEffect( async() => {
   let result = await fetch("http://127.0.0.1:8000/api/listtasks")
   result = await result.json();
   setData(result)
   console.log(result)
   },[])
 
-  const addBoard = async() => {
+  let dataprime = data[0]
+  console.log(data)
   
-
-  }
-
   return (
     <>
     <div className="divcontainer">
@@ -167,7 +161,7 @@ function Board() {
                                     <p>{item.date_begin}</p>
                                     </div>
                                     <div className="limitedate">
-                                    <p className="card-text"> Deadline:</p>
+                                    <p className="card-text"> Ending:</p>
                                     <p>{item.date_ending}</p>
                                     </div>
                                     
@@ -197,7 +191,7 @@ function Board() {
       </div>
       <div>
           <button className="btn-add" onClick={() => setButtonPopup(true)}> New Task </button>
-          <Popup trigger={buttonPopup} setTrigger ={setButtonPopup} />              
+          <Popupb trigger={buttonPopup} setTrigger ={setButtonPopup} />              
       </div>
       
     </>

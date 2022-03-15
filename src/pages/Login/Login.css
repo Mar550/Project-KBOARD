@@ -7,15 +7,7 @@ body{
     gap: 2%;
 }
 
-.divcol1{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-}
 
-.img{
-    width:100%;
-    margin-top:8%;
-}
 
 .container {
     width: 30%;

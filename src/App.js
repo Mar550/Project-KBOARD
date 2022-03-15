@@ -21,6 +21,7 @@ import Contact from './pages/Contact/Contact';
 import Private from './helpers/Private';
 import SearchProject from './pages/Projects/SearchProject';
 import Testing from './TestAdd';
+import Board2 from './pages/Board/Board2';
 
 const App = () => {
   
@@ -53,6 +54,11 @@ const App = () => {
 
         <Route  path='/board'>
           <Board/> 
+            {/*Protected Cmp={Board}*/}
+        </Route>
+
+        <Route  path='/board2'>
+          <Board2/> 
             {/*Protected Cmp={Board}*/}
         </Route>
 

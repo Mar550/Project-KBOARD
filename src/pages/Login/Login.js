@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import './Login.css';
+import styled from 'styled-components';
 import img from '../../assets/image1.png';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
@@ -33,10 +34,11 @@ const Login = () => {
         result = await result.json();
         localStorage.setItem("user-info",JSON.stringify(result))
         history.push("/projects");
+        window.location.reload()
     }
 
     return (
-        <>
+        <Wrapper>
             <Navbar/>
             <div className="divrow">
             
@@ -71,7 +73,7 @@ const Login = () => {
                 </div>
                 </div>
                     <p className="loginhere">
-                        Still not registered ?  <Link to="/register"> <a href="#" className="loginhere-link" >Sign In here</a> </Link>
+                        Still not registered ?  <Link to="/register"> <a href="#" className="loginhere-link" >Sign Up here</a> </Link>
                     </p>
                 </div>
                 </div>
@@ -81,11 +83,23 @@ const Login = () => {
             </div>
         </div>
         <Footer/>
-    </>
+    </Wrapper>
     )
 }
 
+const Wrapper=styled.header`
 
+.divcol1{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 100%;
+}
 
+.img{
+    width: 100%;
+    border: none;
+    margin-left: 10%;
+}
+`
 
 export default Login;

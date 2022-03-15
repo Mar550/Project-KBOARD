@@ -29,7 +29,6 @@ function Popupa(props) {
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
         setInputField(values);
-
       }  
       
       const result = inputFields[0];
@@ -46,10 +45,7 @@ function Popupa(props) {
         props.setTrigger(false);
       }
 
-      const secondSubmit = async () => {
-        console.log(inputFields);
-        console.log(result);
-      }  
+      
 
     
     return (props.trigger) ? (
@@ -143,7 +139,6 @@ function Popupa(props) {
 
 const Wrapper = styled.header`
 
-
 .popup{
   position: fixed;
   width: 100%;
@@ -155,6 +150,7 @@ const Wrapper = styled.header`
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
 }
+
 .popup-inner{
   position: absolute;
   left: 25%;
@@ -226,6 +222,7 @@ const Wrapper = styled.header`
 .submit-btn{
   width: 40%;
 }
+
 .submit-btn2{
   color: white;
   font-size: 16px;
@@ -259,8 +256,6 @@ grid-template-rows: (1,1fr);
 
 }
 
-
-
 /** Form Example **/
 
 .formtask{
@@ -281,13 +276,9 @@ margin-top: 5%;
 margin-left: 7.5%;
 }
 
-
-
 .image{
 border: 1px solid white;
 }
-
-
 
 /** POPUP A NEW **/
 
@@ -297,7 +288,7 @@ margin-top: 1.5rem;
 
 #submit:hover{
   cursor: pointer;
-  }
+}
 
 .signup-content{
 height: 41rem;

@@ -21,6 +21,7 @@ const Sidebar = (props) => {
     function logout(){
         localStorage.clear();
         history.push('/')
+        window.location.reload();
     }
 
     return (

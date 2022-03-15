@@ -10,15 +10,12 @@ import axios, { Axios } from 'axios';
 function Popup(props) {
 
     const [inputFields, setInputField] = useState([
-        { title: '', 
+        { nametask: '', 
           description:'',
           starting:'',
-          deadline:''
+          ending:''
         },
       ]);
-
-    const url = "http://127.0.0.1:8000/api/projects/addtask"
-
 
     const [print, setPrint] = useState(false)
     
@@ -29,11 +26,19 @@ function Popup(props) {
         
       }  
     
+      const result = inputFields[0];
+      let data = JSON.stringify(result);
+
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log(inputFields);
+        console.log(result);
+        let data = JSON.stringify(result);
+        axios
+          .post('http://127.0.0.1:8000/api/task/create',data,
+          {headers:{"Content-Type" : "application/json"}}).then(response =>{window.location.reload()})
+        props.setTrigger(false);
       }
-
       
     
     return (props.trigger) ? (
@@ -49,7 +54,7 @@ function Popup(props) {
                     name="title"
                     label="Title"
                     className= "txtfield"
-                    value={inputFields.title}
+                    value={inputFields.nametask}
                     onChange={event => handleChangeInput(index, event)}
                   />
                   <TextField
@@ -77,7 +82,7 @@ function Popup(props) {
                     type="date"
                     label="Date Limite"
                     className= "datefield3"
-                    value={inputFields.deadline}
+                    value={inputFields.ending}
                     onChange={event => handleChangeInput(index, event)}
                   />
                 </div>

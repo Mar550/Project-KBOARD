@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../Contact/Contact.css';
+import styled from 'styled-components';
 import imgproject from '../../assets/projectimg.jpeg';
 import {AiOutlineEdit} from 'react-icons/ai';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
@@ -46,6 +46,10 @@ function Projects () {
 
     const [data,setData]=useState([]);
 
+    useEffect( ()=>{
+        getData();
+    },[]);
+
     const deleteProject = async($id) =>
     {
         let result = await fetch ("http://127.0.0.1:8000/api/delete/"+$id,{
@@ -54,20 +58,25 @@ function Projects () {
         result=await result.json();
         console.warn(result)
         setData();
+        alert("Project Deleted")
+        window.location.reload()
     }
 
-    useEffect( async() => {
-        let result = await fetch("http://127.0.0.1:8000/api/listprojects")
+    const getData = async($id) => {
+        let result = await fetch("http://127.0.0.1:8000/api/listprojects");
         result = await result.json();
-        setData(result)
-    },[])
+        setData(result);
+    }
 
     console.warn("result",data)
     return (
-        <>
-       
-        { 
-            data.map((item)=>
+        <Wrapper> 
+        <div className="pagetitle">
+        <h1 > MY PROJECTS </h1>
+        </div>
+        <div className="gridcontainer">
+            {                
+            (data || []).map((item)=>
             <div className="projectcontainer">
                 <div className="row1">
                     <Link to={`update/${item.id}`}>
@@ -75,11 +84,12 @@ function Projects () {
                     </Link>
                     <RiDeleteBin5Fill className="icon" onClick={()=>deleteProject(item.id)}/>
                 </div>
-                <div className="row2">
-                <div className="colleft" >
-                    <img className="img" src={img}/>
-                </div>
-                <div className="colright">
+                <div className="row3" >
+                    <div className="divimg">
+                    <img className="img" src={img} />
+                    </div>
+                    <hr/>
+                    <div className="paddingdiv">
                     <h1 className="titlep">
                          {item.nameproject}
                     </h1>
@@ -96,12 +106,16 @@ function Projects () {
                             <p> {item.date_ending} </p>							
                         </div>
                     </div>
+                    <Link to="/board">
                     <button className="showbutton"> SHOW
-                    </button>			
-                </div>
+                    </button>	
+                    </Link>
+                    </div>		
                 </div>
             </div>
         )} 
+
+        </div>
 
             <div> 
                 <div className="divbtnp">     
@@ -111,9 +125,147 @@ function Projects () {
             </div>
 
             
-        </>
+        </Wrapper>
     )
 }
 
+const Wrapper = styled.header `
+.projectcontainer{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    opacity: 0.7;
+    box-shadow: 5px 5px 5px 4px  black;
+    margin-top: 10%;
+}
+
+.gridcontainer{
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr); 
+    grid-template-rows: auto;
+    margin-left: 10%;
+}
+
+.row2{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    margin-bottom: 25px;
+}
+
+.colleft{
+    width:70%;
+}
+
+.colright{
+    width: 70%;
+}   
+
+.tabledaates{
+    margin-top: 5px;
+}
+
+
+.row1{
+    display: flex;
+    flex-direction: row;
+    justify-items: end;
+    justify-content: end;
+    gap: 15px;
+    color: black;
+}
+
+.icon{
+    font-size: 22px;
+}
+
+.icon:hover{
+    cursor:pointer;
+    font-size: 25px;
+}
+
+.showbutton{
+    background-color: white;
+    opacity: 1;
+    border: 2px solid black;
+    width: 95%;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    color:black;
+    border-radius: 5px;
+    height: 3rem;
+}
+
+.showbutton:hover{
+    background-color: black;
+    color:white;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.img{
+    border: none;
+    margin-bottom: 10px;
+}
+
+.rowdate{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.divimg{
+    margin: 0;
+}
+
+hr{
+    height: 3px;
+    background-color: black;
+    width: 100%;
+}
+
+.divbtnp{
+    margin-top: 70px;
+}
+
+.paddingdiv{
+    padding: 20px;
+}
+
+.btn-add-project{
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 21%;
+    display: block;
+    margin-left: AUTO;  
+    margin-right: AUTO;
+    position: sticky;
+    border-radius: 5px;
+    height: 3.8rem;
+}
+
+.btn-add-project:hover{
+    cursor: pointer;
+    background-color: white;
+    color:black;
+    border: none;
+}
+
+.pagetitle{
+    text-align: center;
+    font-size: 130%;
+}
+
+.titlep{
+    font-size: 160%;
+}
+`
 
 export default Projects;
