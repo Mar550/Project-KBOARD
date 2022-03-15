@@ -131,7 +131,7 @@ class ProjectController extends Controller
         $project->image = $req->input('image');
         $project->date_begin = $req->input('begin');
         $project->date_ending = $req->input('end');
-        $project->save();
+        $project->update();
 
         return response()->json([
             'status'=> 200,

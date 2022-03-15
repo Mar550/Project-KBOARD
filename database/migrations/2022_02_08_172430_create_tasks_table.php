@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('date_begin')->default('CURRENT_TIMESTAMP');
             $table->string('date_ending')->default('CURRENT_TIMESTAMP');
-            $table->foreignId('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
             $table->timestamps();
             
         });

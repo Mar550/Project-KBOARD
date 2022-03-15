@@ -65,7 +65,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function listtasks()
+    public function list()
     {
         return Task::all();
     }
