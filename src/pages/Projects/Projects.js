@@ -12,7 +12,7 @@ import {GoPlus} from 'react-icons/go';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {BiSearchAlt2} from 'react-icons/bi';
-
+import Swal from 'sweetalert2';
 
 function Projects () {
 
@@ -61,10 +61,25 @@ function Projects () {
             method:"DELETE"
         });
         result=await result.json();
-        console.warn(result)
-        setData();
-        alert("Project Deleted")
-        window.location.reload()
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to get is back !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'The project has been deleted.',
+                'success'
+              )
+              setData();
+              window.location.reload()
+            }
+          })
     }
 
     const getData = async($id) => {

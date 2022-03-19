@@ -3,8 +3,9 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router";
 import { BsSkipEndBtn } from "react-icons/bs";
-import { FiEdit} from "react-icons/fi";
+import { FaEdit } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import styled from 'styled-components';
 
 function EditProject(props){
 
@@ -46,9 +47,9 @@ function EditProject(props){
         axios.put(`http://127.0.0.1:8000/api/update/project/${id}`, data)
             .then(reponse => {
                 Swal.fire({
-                    position: 'right',
-                    icon: 'success',
+                    position: 'center',
                     title: 'The project has been updated',
+                    icon: 'success',
                     showConfirmButton: false,
                     timer: 2000
                   })
@@ -58,15 +59,15 @@ function EditProject(props){
     }
     
     return (
-        <>
+        <Wrapper>
             <div className="signup-content">
                     <div  id="signup-form" className="signup-form">
-                    <h2 className="form-title">Edit Project </h2>
+                    <h2 className="form-title"> <FaEdit/> Edit your project </h2>
                 <div className="form-group">
-                    <input type="text" className="form-input"   value={name} onChange={handleNameChange} />
+                    <input type="text" className="form-input" placeholder="New name" value={name} onChange={handleNameChange} />
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-input"   value={description} onChange={handleDescriptionChange} />
+                    <input type="text" className="form-input" placeholder="New description"  value={description} onChange={handleDescriptionChange} />
                 </div>
                 
 
@@ -74,12 +75,12 @@ function EditProject(props){
                     <input type="file" className="form-input"  value={image} onChange={handleImageChange}/>
                 </div>
 
-                <div className="form-group" id="form-group">
+                <div className="form-group" id="form-group2">
                     <span className="spanfile"> Starting Date </span>
                     <input type="date" className="form-input" name="begin" value={begin} onChange={handleBeginChange}/>
                 </div>
 
-                <div className="form-group" id="form-group">
+                <div className="form-group" id="form-group2">
                     <span className="spanfile"> Ending Date </span>
                     <input type="date" className="form-input" name="end" value={end} onChange={handleEndChange}/>
                 </div> 
@@ -88,11 +89,38 @@ function EditProject(props){
                     <button  name="submit" id="submit" className="form-submit" onClick={handleUpdate} > UPDATE PROJECT</button>
                 </div>
                 </div>
-                </div>
-        </>
+            </div>
+        </Wrapper>
     )
 }
 
+const Wrapper = styled.header `
 
+.signup-content{
+    margin-top: 3%;
+    width: 50%;
+    margin-left: 26%;
+    height: 51rem;
+}
+
+.signup-form{
+    margin-top: 1%;
+    width: 140%;
+    margin-left: -15%;
+}
+
+#form-group2{
+    display:flex;
+    flex-direction:row;
+}
+
+.spanfile{
+    margin-top: 5%;
+}
+
+.form-submit{
+    margin-top: 10%;
+}
+`
 
 export default EditProject;

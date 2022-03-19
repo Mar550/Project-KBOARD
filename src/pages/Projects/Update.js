@@ -5,6 +5,9 @@ import { useParams } from "react-router";
 import { BsSkipEndBtn } from "react-icons/bs";
 import { FiEdit} from "react-icons/fi";
 import Swal from 'sweetalert2';
+import styled from 'styled-components';
+
+
 
 function EditProject(props){
 
@@ -58,7 +61,7 @@ function EditProject(props){
     }
     
     return (
-        <>
+        <Wrapper>
             <div className="signup-content">
                     <div  id="signup-form" className="signup-form">
                     <h2 className="form-title">Edit Project </h2>
@@ -74,12 +77,12 @@ function EditProject(props){
                     <input type="file" className="form-input"  value={image} onChange={handleImageChange}/>
                 </div>
 
-                <div className="form-group" id="form-group">
+                <div className="form-group" id="form-group2">
                     <span className="spanfile"> Starting Date </span>
                     <input type="date" className="form-input" name="begin" value={begin} onChange={handleBeginChange}/>
                 </div>
 
-                <div className="form-group" id="form-group">
+                <div className="form-group" id="form-group2">
                     <span className="spanfile"> Ending Date </span>
                     <input type="date" className="form-input" name="end" value={end} onChange={handleEndChange}/>
                 </div> 
@@ -89,9 +92,17 @@ function EditProject(props){
                 </div>
                 </div>
             </div>
-        </>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.header `
+
+.spanfile{
+    color: red;
+}
+
+`
 
 
 

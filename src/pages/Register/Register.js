@@ -8,6 +8,7 @@ import img2 from '../../assets/image2.png';
 import './Register.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import Swal from 'sweetalert2';
 
 function Register() {
 
@@ -42,7 +43,19 @@ function Register() {
             }
         })
         result = await result.json()
-        history.push ("/")
+        Swal.fire({
+            title: 'Do you want to save your credentials ?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire('Saved!', '', 'success')
+            }
+            history.push ("/")
+          })
     }
     return (
             <>
