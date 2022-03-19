@@ -18,9 +18,9 @@ class TaskController extends Controller
     {
         $tasks = Task::join('projects','tasks.project_id','=','projects.id')
         ->select('tasks.id','tasks.task_name','tasks.date_begin','tasks.date_ending','tasks.description')
-        ->orderBy('tasks.created_at','desc')->get();
+        ->orderBy('tasks.date_ending','asc')->get();
 
-        return $tasks;
+        return $tasks;  
     }
 
     /**

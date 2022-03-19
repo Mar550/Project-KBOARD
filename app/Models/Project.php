@@ -11,14 +11,16 @@ class Project extends Model
 
     protected $guarded=[];
 
-    public function projects() 
+    protected $with = ['user'];
+
+    public function tasks() 
     {
         return $this->hasMany(Task::class,'task_id');
     }
 
-    public function board() 
+    public function user() 
     {
-        return $this->hasOne(Board::class,'board_id');
-    }
+        return $this->belongsTo(User::class,'user_id');
+    }   
 
 }

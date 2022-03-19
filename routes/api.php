@@ -24,19 +24,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+Route::get('all-users',[UserController::class,'index']);
+
 Route::post('login',[UserController::class,'login']);
+Route::post('register',[UserController::class,'register']);
 Route::post('create',[ProjectController::class,'create']);
 Route::get('listprojects',[ProjectController::class,'listprojects']);
 Route::get('project/{id}',[ProjectController::class,'getProject']);
-Route::get('project/{id}/edit',[ProjectController::class,'edit']);
-Route::put('update/{id}',[ProjectController::class,'update']);
+Route::get('edit/project/{id}',[ProjectController::class,'edit']);
+Route::put('update/project/{id}',[ProjectController::class,'update']);
 Route::delete('delete/{id}',[ProjectController::class,'delete']);
 
 
- 
+
 Route::post('task/create',[TaskController::class,'create']);
 Route::get('listtasks',[TaskController::class,'list']);
-Route::get('task/{id}',[TaskController::class,'show']);
 Route::get('edit/task/{id}',[TaskController::class,'edit']);
 Route::get('update/task/{id}',[TaskController::class,'update']);
 Route::get('delete/task/{id}',[TaskController::class,'delete']);

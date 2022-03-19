@@ -86,6 +86,11 @@ class ProjectController extends Controller
         $project = Project::find($id);
     }
 
+    public function showboard($id)
+    {
+        
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -107,7 +112,7 @@ class ProjectController extends Controller
         {
             return response()->json([
                 'status'=>404,
-                'message'=>'No Product Found',
+                'message'=>'Project not found',
             ]);
                 
         }
