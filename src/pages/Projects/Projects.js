@@ -3,14 +3,19 @@ import styled from 'styled-components';
 import imgproject from '../../assets/projectimg.jpeg';
 import {AiOutlineEdit} from 'react-icons/ai';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
+import {BsPlusLg} from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Popup from './PopupProject';
 import Popupa from '../../components/Popup/PopupA';
 import img from '../../assets/img.jpeg';
 import {GoPlus} from 'react-icons/go';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import {BiSearchAlt2} from 'react-icons/bi';
+
 
 function Projects () {
-    
+
     const [name,setName]=useState("");
     const [description,setDescription]=useState("");
     const [image,setImage]=useState("");
@@ -72,14 +77,21 @@ function Projects () {
     return (
         <Wrapper> 
         <div className="pagetitle">
-        <h1 > MY PROJECTS </h1>
+            <div className="divnew">
+            <Button variant="contained" className="btn-contained" onClick={() => setButtonPopup(true)}> New Project </Button>
+            </div>
+            <div className="divsearch">
+            <BiSearchAlt2 className="searchicon"/>
+            <TextField label="Search a project" className="searchfield"/>
+            </div>      
         </div>
+
         <div className="gridcontainer">
             {                
             (data || []).map((item)=>
             <div className="projectcontainer">
                 <div className="row1">
-                    <Link to={`update/${item.id}`}>
+                    <Link to={`editproject/${item.id}`}>
                     <AiOutlineEdit className="icon"/>
                     </Link>
                     <RiDeleteBin5Fill className="icon" onClick={()=>deleteProject(item.id)}/>
@@ -118,9 +130,6 @@ function Projects () {
         </div>
 
             <div> 
-                <div className="divbtnp">     
-                        <button className="btn-add-project" onClick={() => setButtonPopup(true)}>  New Project  </button>
-                </div> 
                 <Popupa trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
             </div>
 
@@ -130,6 +139,36 @@ function Projects () {
 }
 
 const Wrapper = styled.header `
+
+.pagetitle{
+    height: 6rem;
+    display:flex;
+    flex-direction:row;
+    justify-content: end;
+    gap: 6%;
+    margin-top: -40px;
+}
+
+.btn-contained{
+    margin-top: 11%;
+    width: 120%; 
+    height: 60%;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.searchfield{
+    margin-top: 9%;
+}
+
+.searchicon{
+    margin-top: 15%;
+    font-size: 35px;
+}
+.divsearch{
+    margin-right: 12%;
+}
+
 .projectcontainer{
     width: 60%;
     display: flex;

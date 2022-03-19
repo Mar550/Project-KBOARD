@@ -1,17 +1,37 @@
 import React from 'react';
-import img from '../assets/404p.png';
 import styled from 'styled-components';
 import './Error.css'
+import logoerror from '../assets/erreur.png'
 
 function Error() {
     return (
         <Wrapper className="background">
-            <img src={img} className="img" width="20rem" />
+            <div className="divcontain">
+            <img src={logoerror} className="logoerror"/>
+            <h2 className="errortext"> ERROR </h2>
+            <h2 className="errortext2"> PAGE NOT FOUND </h2>
+            </div>
         </Wrapper>
     )
 }
 
 const Wrapper = styled.header `
+
+.divcontain{
+    border:none;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 28%;
+}
+
+.errortext{
+    font-size: 60px;
+}
+
+.errortext2{
+    font-size: 40px;
+}
 
 `
 export default Error;

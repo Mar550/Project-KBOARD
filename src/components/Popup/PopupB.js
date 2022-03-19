@@ -14,10 +14,10 @@ function Popupb(props) {
 
     const [inputFields, setInputField] = useState([
         { 
-            title: '', 
+            nametask: '', 
             description:'',
             starting:'',
-            deadline:''
+            ending:''
             }
       ]);
 
@@ -41,7 +41,7 @@ function Popupb(props) {
         console.log(result);
         let data = JSON.stringify(result);
         axios
-          .post('http://127.0.0.1:8000/api/tast/create',data,
+          .post('http://127.0.0.1:8000/api/task/create',data,
           {headers:{"Content-Type" : "application/json"}}).then(response =>{window.location.reload()})
         props.setTrigger(false);
       }
@@ -66,10 +66,10 @@ function Popupb(props) {
                             <input 
                             className="form-input" 
                             type="text"
-                            name="title"
+                            name="nametask"
                             id="text"
-                            placeholder="Titre"
-                            value={inputFields.title}
+                            placeholder="Title"
+                            value={inputFields.nametask}
                             onChange={event => handleChangeInput(index, event)}/>
                         </div>
             
@@ -95,12 +95,12 @@ function Popupb(props) {
                         </div>
             
                         <div className="form-group" id="form-group">
-                            <span className="spanfile"> Deadline  </span>
+                            <span className="spanfile"> Ending Date  </span>
                             <input 
                             type="date" 
                             className="form-input" 
                             name="deadline"
-                            value={inputFields.deadline}
+                            value={inputFields.ending}
                             onChange={event => handleChangeInput(index, event)}/>
                         </div>                  
                 </div>

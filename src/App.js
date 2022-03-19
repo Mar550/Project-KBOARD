@@ -22,6 +22,7 @@ import Private from './helpers/Private';
 import SearchProject from './pages/Projects/SearchProject';
 import Testing from './TestAdd';
 import Board2 from './pages/Board/Board2';
+import EditProject from './pages/Projects/EditProject';
 
 const App = () => {
   
@@ -87,6 +88,10 @@ const App = () => {
         
         <Route  path='/privatecontent'>
           <Private/>
+        </Route>
+      
+        <Route  path='/editproject/:id'>
+          <EditProject/>
         </Route>
 
         <Route path="/testing">

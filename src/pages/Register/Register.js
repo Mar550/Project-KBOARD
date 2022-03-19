@@ -19,7 +19,6 @@ function Register() {
             history.push("/projects")
         }
     },[])
-    /**  */
 
     const [firstname,setFirstName]=useState("");
     const [lastname,setLastName]=useState("");
@@ -42,7 +41,6 @@ function Register() {
                 "Accept":'application/json'
             }
         })
-
         result = await result.json()
         history.push ("/")
     }

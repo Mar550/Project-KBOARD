@@ -44,9 +44,9 @@ const Login = () => {
             
             <div className="divcol1">
                 <div className="texttitle"> 
-                    <h1 className="maintitle"> Gérez tous vos projets... </h1>
+                    <h1 className="maintitle"> Use this app to replace them all ... </h1>
                     <br/>
-                    <h1 className="subtitle"> en une seule plateforme. </h1>
+                    <h1 className="subtitle"> and help your team move work forward. </h1>
                 </div>
                 <img className="img" src={img}/>
             </div>

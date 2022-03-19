@@ -1,49 +1,98 @@
-import React,{useState, useEffect, useNavigate} from "react";
-import './Update.css';
-import { withRouter } from "react-router";
-import { useParams } from "react-router";
+import React, {useState, useEffect, useHistory} from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+import { useParams } from "react-router";
+import { BsSkipEndBtn } from "react-icons/bs";
+import { FiEdit} from "react-icons/fi";
 import Swal from 'sweetalert2';
 
-function Update(props) {
+function EditProject(props){
 
-    const [name,setName]=useState("");
-    const [description,setDescription]=useState("");
-    const [image,setImage]=useState("");
-    const [start,setStart]= useState("");
-    const [end,setEnd]= useState("");
+    const { id } = useParams();
     
-    
-    const[data,setData]=useState([]);
+    const [data, setData] = useState([]);
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [image, setImage] = useState('');
+    const [begin, setBegin] = useState('');
+    const [end, setEnd] = useState('');
 
-    const updateProject = async () => {
-        console.warn(name, description, image, start, end)
-        const formData = new FormData();
-        formData.append('nameprojet',name);
-        formData.append('description',description);
-        formData.append('image',image);
-        formData.append('date_begin',start);
-        formData.append('date_ending',end);
-        let result = await fetch(("http://127.0.0.1:8000/api/update/"+props.match.params.id), {
-            method: 'PUT',
-            body: formData
-        });
-        console.log({name, description, image, start, end})
-        console.log(formData)
-        alert(" Project Updated ")
+
+    const handleNameChange = (e) => {
+        setName(e.target.value)
+    }
+    const handleDescriptionChange = (e) => {
+        setDescription(e.target.value)
+    }
+    const handleImageChange = (e) => {
+        setImage(e.target.value)
+    }
+    const handleBeginChange = (e) => {
+        setBegin(e.target.value)
+    }
+    const handleEndChange = (e) => {
+        setEnd(e.target.value)
     }
 
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+        const data = {
+            nameprojet: name,
+            description: description,
+            image: image,
+            begin: begin,
+            end: end
+        }
+        axios.put(`http://127.0.0.1:8000/api/update/project/${id}`, data)
+            .then(reponse => {
+                Swal.fire({
+                    position: 'right',
+                    icon: 'success',
+                    title: 'The project has been updated',
+                    showConfirmButton: false,
+                    timer: 2000
+                  })
+            }).catch((err)=>{
+                console.warn("Something went wrong")
+            });
+    }
+    
     return (
-        <div className="container">
-                <h1> Update Project</h1>
-                <input type="text" name="nameprojet" value={data} onChange={(event)=>{setName(event.target.value)}} />
-                <input type="text" name="description" value={description} onChange={(event)=>{setDescription(event.target.value)}}  />
-                <input type="file" name="iamge" value={image} onChange={(event)=>{setImage(event.target.value)}}  />
-                <input type="date" name="begin" value={start} onChange={(event)=>{setStart(event.target.value)}} />
-                <input type="date" name="end" value={end} onChange={(event)=>{setEnd(event.target.value)}} />
-            <button onClick={() => updateProject()} > EDIT </button>
-        </div> 
+        <>
+            <div className="signup-content">
+                    <div  id="signup-form" className="signup-form">
+                    <h2 className="form-title">Edit Project </h2>
+                <div className="form-group">
+                    <input type="text" className="form-input"   value={name} onChange={handleNameChange} />
+                </div>
+                <div className="form-group">
+                    <input type="text" className="form-input"   value={description} onChange={handleDescriptionChange} />
+                </div>
+                
+
+                <div className="form-group" id="fileavatar">
+                    <input type="file" className="form-input"  value={image} onChange={handleImageChange}/>
+                </div>
+
+                <div className="form-group" id="form-group">
+                    <span className="spanfile"> Starting Date </span>
+                    <input type="date" className="form-input" name="begin" value={begin} onChange={handleBeginChange}/>
+                </div>
+
+                <div className="form-group" id="form-group">
+                    <span className="spanfile"> Ending Date </span>
+                    <input type="date" className="form-input" name="end" value={end} onChange={handleEndChange}/>
+                </div> 
+                
+                <div className="form-group">
+                    <button  name="submit" id="submit" className="form-submit" onClick={handleUpdate} > UPDATE PROJECT</button>
+                </div>
+                </div>
+            </div>
+        </>
     )
 }
 
-export default withRouter(Update);
+
+
+export default EditProject;
