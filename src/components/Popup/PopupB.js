@@ -12,14 +12,22 @@ import styled from "styled-components";
 
 function Popupb(props) {
 
+    const disablePastDate = () => {
+      const today = new Date();
+      const dd = String(today.getDate() + 1).padStart(2, "0");
+      const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      const yyyy = today.getFullYear();
+      return yyyy + "-" + mm + "-" + dd;
+    };
+
     const [inputFields, setInputField] = useState([
-        { 
-            nametask: '', 
-            description:'',
-            starting:'',
-            ending:''
-            }
-      ]);
+      { 
+        nametask: '', 
+        description:'',
+        starting:'',
+        ending:''
+      }
+    ]);
 
     const url = "http://127.0.0.1:8000/api/task/create"
 
@@ -100,6 +108,7 @@ function Popupb(props) {
                             type="date" 
                             className="form-input" 
                             name="deadline"
+                            min={disablePastDate()}
                             value={inputFields.ending}
                             onChange={event => handleChangeInput(index, event)}/>
                         </div>                  

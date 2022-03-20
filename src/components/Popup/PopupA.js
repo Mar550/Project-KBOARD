@@ -11,6 +11,16 @@ import styled from "styled-components";
 
 function Popupa(props) {
 
+
+  const disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() + 1).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+};
+
+
     const [inputFields, setInputField] = useState([
         { nameprojet: '',
           description:'', 
@@ -110,6 +120,7 @@ function Popupa(props) {
                             type="date" 
                             className="form-input" 
                             name="end"
+                            min={disablePastDate()}
                             value={inputFields.end}
                             onChange={event => handleChangeInput(index, event)}/>
                         </div>

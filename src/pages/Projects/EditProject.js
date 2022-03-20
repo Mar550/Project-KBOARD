@@ -9,6 +9,14 @@ import styled from 'styled-components';
 
 function EditProject(props){
 
+    const disablePastDate = () => {
+        const today = new Date();
+        const dd = String(today.getDate() + 1).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const yyyy = today.getFullYear();
+        return yyyy + "-" + mm + "-" + dd;
+    };
+
     const { id } = useParams();
     
     const [data, setData] = useState([]);
@@ -82,7 +90,7 @@ function EditProject(props){
 
                 <div className="form-group" id="form-group2">
                     <span className="spanfile"> Ending Date </span>
-                    <input type="date" className="form-input" name="end" value={end} onChange={handleEndChange}/>
+                    <input type="date" className="form-input" name="end" min={disablePastDate()} value={end} onChange={handleEndChange}/>
                 </div> 
                 
                 <div className="form-group">

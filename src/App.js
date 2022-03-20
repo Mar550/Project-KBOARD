@@ -11,7 +11,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Projects from "./pages/Projects/Projects";
 import Sidebar from './components/Sidebar/Sidebar';
-import Board from './pages/Board/Board';
+import Board3 from './pages/Board/Board3';
 import Protected from './helpers/Protected.js';
 import Update from './pages/Projects/Update';
 import Popupb from './components/Popup/PopupB';
@@ -54,7 +54,7 @@ const App = () => {
         </Route>
 
         <Route  path='/board'>
-          <Board/> 
+          <Board3/> 
             {/*Protected Cmp={Board}*/}
         </Route>
 
