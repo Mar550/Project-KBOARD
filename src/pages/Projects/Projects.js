@@ -81,7 +81,27 @@ function Projects () {
         setData(result);
     }
 
-    console.warn("result",data)
+
+    const [search, setSearch] = useState("");
+
+    const searchItems = async(key) => {
+        setSearch(key)
+        console.log(key)
+        let result = await fetch(`http://127.0.0.1:8000/api/search/${key}`)
+        result = await result.json();
+        setData(result)
+        console.log(result)
+    }
+
+    /** 
+        const searchProject = async(key) => {
+            setSearch(key)
+            let result = await fetch(`http://127.0.0.1:8000/api/search/${key}`)
+            result = await result.json();
+            setData(result)
+        }
+    */
+
     return (
         <Wrapper> 
         <div className="pagetitle">
@@ -89,8 +109,8 @@ function Projects () {
             <Button variant="contained" className="btn-contained" onClick={() => setButtonPopup(true)}> New Project </Button>
             </div>
             <div className="divsearch">
-            <BiSearchAlt2 className="searchicon"/>
-            <TextField label="Search a project" className="searchfield"/>
+            <BiSearchAlt2 className="searchicon" onClick={() => searchItems(search)} />
+            <TextField label="Search a project" className="searchfield" onChange={(e) => setSearch(e.target.value)} />
             </div>      
         </div>
 
@@ -147,6 +167,12 @@ function Projects () {
 }
 
 const Wrapper = styled.header `
+
+.searchicon:hover{
+    cursor:pointer;
+    font-size: 40px;
+
+}
 
 .pagetitle{
     height: 6rem;
