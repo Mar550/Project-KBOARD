@@ -21,7 +21,7 @@
   z-index: 100;
   padding: 48px 0 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  width: 3rem;
+  width: 3.1rem;
 }
 
 #sidebar-wrapper{
@@ -55,14 +55,14 @@
 }
 
 .icones{
-  font-size: 1.6rem;
-  margin-left: 4%;
+  font-size: 1.7rem;
   color:white;
+  margin-left: 5%;
+
 }
 
 .iconessmall{
-  font-size: 1.6rem;
-  margin-left: 15%;
+  font-size: 1.7rem;
   color:white;
 } 
 
@@ -86,13 +86,16 @@
   align-items: center;
 }
 
+.margindiv{
+  margin-left: 16%;
+}
 .divlink:hover{
-  background-color: purple;
+  background-color: #1338BE;
   font-weight: bold;
 }
 
 .divlogout:hover{
-  background-color: purple;
+  background-color: #1338BE;
 }
 
 .logo{

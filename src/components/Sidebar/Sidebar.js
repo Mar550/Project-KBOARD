@@ -79,28 +79,38 @@ const Sidebar = (props) => {
             <div className="sidebar-sticky">
 
             <div className="divlink" onClick={() => setShowSidebar(!showSidebar)} >
+            <div className="margindiv"> 
                 <GiHamburgerMenu className="iconessmall" />
+            </div>
             </div>
             
             <div className="divlink">
+            <div className="margindiv"> 
             <Nav.Item>
                 <Nav.Link href="/home" className="navlink"> <AiOutlineHome className="iconessmall"/> </Nav.Link>
             </Nav.Item>
             </div>
+            </div>
             <div className="divlink">
+            <div className="margindiv"> 
             <Nav.Item>
                 <Nav.Link eventKey="link-1" className="navlink"> <AiOutlineProject className="iconessmall"/> </Nav.Link>
             </Nav.Item>
             </div>
+            </div>
             <div className="divlink">
+            <div className="margindiv">
             <Nav.Item>
                 <Nav.Link eventKey="link-2" className="navlink"> <MdOutlineRoomPreferences className="iconessmall"/>  </Nav.Link>
             </Nav.Item>
             </div>
+            </div>
             <div className="divlink">
+            <div className="margindiv">
             <Nav.Item>
                 <Nav.Link eventKey="link-2" className="navlink"> <MdOutlineContactMail className="iconessmall" color="white"/>  </Nav.Link>
             </Nav.Item>
+            </div>
             </div>
             </div>
 
