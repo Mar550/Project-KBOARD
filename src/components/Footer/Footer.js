@@ -6,8 +6,6 @@ import {ImYoutube} from 'react-icons/im';
 import {ImGithub} from 'react-icons/im';
 import {AiFillLinkedin} from 'react-icons/ai';
 
-
-
 function Footer()
 {
     return (

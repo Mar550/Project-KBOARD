@@ -104,6 +104,4 @@ const Wrapper = styled.header `
 
 `
 
-
-
 export default EditProject;

@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import imgproject from '../../assets/projectimg.jpeg';
 import {AiOutlineEdit} from 'react-icons/ai';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
-import {BsPlusLg} from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import Popup from './PopupProject';
-import Popupa from '../../components/Popup/PopupA';
+import PopupProject from '../../components/Popup/PopupProject';
 import img from '../../assets/img.jpeg';
-import {GoPlus} from 'react-icons/go';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {BiSearchAlt2} from 'react-icons/bi';
@@ -158,7 +154,7 @@ function Projects () {
         </div>
 
             <div> 
-                <Popupa trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
+                <PopupProject trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
             </div>
 
             
@@ -210,8 +206,9 @@ const Wrapper = styled.header `
     background-color: white;
     border-radius: 10px;
     opacity: 0.7;
-    box-shadow: 5px 5px 5px 4px  black;
-    margin-top: 10%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    margin-top: 5%;
+    border: 2px solid black;
 }
 
 .gridcontainer{

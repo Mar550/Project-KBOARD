@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
+import styled from 'styled-components';
 import {Nav} from "react-bootstrap";
 import './Sidebar.css';
-import {GrHome} from 'react-icons/gr';
 import {AiOutlineProject} from 'react-icons/ai';
 import {MdOutlineContactMail} from 'react-icons/md';
 import {MdOutlineRoomPreferences} from 'react-icons/md';
@@ -25,7 +25,7 @@ const Sidebar = (props) => {
     }
 
     return (
-        <>
+        <Wrapper>
         {
             localStorage.getItem('user-info') ?
             
@@ -127,9 +127,117 @@ const Sidebar = (props) => {
             <>
             </>
             }
-        </>
+        </Wrapper>
         );
   };
 
+
+  const Wrapper = styled.header `
+  .sidebar {
+    position: fixed;
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100vh !important;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    width: 13.4rem;
+  }
+  
+  .sidebarsmall {
+    position: fixed;
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100vh !important;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    width: 3.1rem;
+  }
+  
+  #sidebar-wrapper{
+    min-height: 100vh !important;
+    width: 100vw;
+    margin-left: -1rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+  
+  .navlink{
+    list-style-type: none;
+    color:white;
+    text-decoration: none;
+    font-size: 1.05rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-weight: bold;
+  }
+  
+  .icones{
+    font-size: 1.7rem;
+    color:white;
+    margin-left: 5%;
+  
+  }
+  
+  .iconessmall{
+    font-size: 1.7rem;
+    color:white;
+  } 
+  
+  .sidebar-sticky{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  
+  
+  .divlogout{
+    margin-top: 14rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .divlink{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .margindiv{
+    margin-left: 16%;
+  }
+  .divlink:hover{
+    background-color: #1338BE;
+    font-weight: bold;
+  }
+  
+  .divlogout:hover{
+    background-color: #1338BE;
+  }
+  
+  .logo{
+    margin-left: auto;
+    margin-right: auto;
+  }
+    
+  `
 
   export default Sidebar

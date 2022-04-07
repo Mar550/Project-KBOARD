@@ -3,26 +3,21 @@ import {BrowserRouter as Router,Switch,Route
 } from 'react-router-dom';
 import './App.css';
 
-
-import About from "./pages/About";
-import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Projects from "./pages/Projects/Projects";
 import Sidebar from './components/Sidebar/Sidebar';
-import Board3 from './pages/Board/Board3';
-import Protected from './helpers/Protected.js';
+import Board from './pages/Board/Board';
 import Update from './pages/Projects/Update';
-import Popupb from './components/Popup/PopupB';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Contact from './pages/Contact/Contact';
 import Private from './helpers/Private';
 import SearchProject from './pages/Projects/SearchProject';
 import Testing from './TestAdd';
-import Board2 from './pages/Board/Board2';
 import EditProject from './pages/Projects/EditProject';
+import Protected from './helpers/Protected.js';
 
 const App = () => {
   
@@ -54,18 +49,8 @@ const App = () => {
         </Route>
 
         <Route  path='/board'>
-          <Board3/> 
+          <Board/> 
             {/*Protected Cmp={Board}*/}
-        </Route>
-
-        <Route  path='/board2'>
-          <Board2/> 
-            {/*Protected Cmp={Board}*/}
-        </Route>
-
-        <Route path='/popup'>
-          <Popupb/>
-          {/*Protected Cmp={Popup}*/}
         </Route>
 
         <Route path='/footer'>

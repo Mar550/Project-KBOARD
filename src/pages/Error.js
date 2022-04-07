@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import './Error.css'
 import logoerror from '../assets/erreur.png'
 
 function Error() {
@@ -32,6 +31,13 @@ const Wrapper = styled.header `
 .errortext2{
     font-size: 40px;
 }
+
+.img{
+    border: 1px solid black;
+    border-radius: 15px;
+    opacity: 0.9;
+}
+
 
 `
 export default Error;

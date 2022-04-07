@@ -1,35 +1,33 @@
 import React, {useState, useEffect} from "react";
-import TextField from '@material-ui/core/TextField';
-import DatePicker, { getDefaultLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {CgCloseR} from 'react-icons/cg';
 import {FaClipboardList} from 'react-icons/fa';
 import './Popup.css';
 import axios, { Axios } from 'axios';
 import styled from "styled-components";
 
 
+function PopupProject(props) {
 
-function Popupb(props) {
 
-    const disablePastDate = () => {
-      const today = new Date();
-      const dd = String(today.getDate() + 1).padStart(2, "0");
-      const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      const yyyy = today.getFullYear();
-      return yyyy + "-" + mm + "-" + dd;
-    };
+  const disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() + 1).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+};
+
 
     const [inputFields, setInputField] = useState([
-      { 
-        nametask: '', 
-        description:'',
-        starting:'',
-        ending:''
-      }
-    ]);
+        { nameprojet: '',
+          description:'', 
+          image:'',
+          begin:'',
+          end:''
+        },
+      ]);
 
-    const url = "http://127.0.0.1:8000/api/task/create"
+    const url = "http://127.0.0.1:8000/api/addproject"
 
     const [trigger, setTrigger] = useState(false)
     const [print, setPrint] = useState(false)
@@ -49,7 +47,7 @@ function Popupb(props) {
         console.log(result);
         let data = JSON.stringify(result);
         axios
-          .post('http://127.0.0.1:8000/api/task/create',data,
+          .post('http://127.0.0.1:8000/api/create',data,
           {headers:{"Content-Type" : "application/json"}}).then(response =>{window.location.reload()})
         props.setTrigger(false);
       }
@@ -67,17 +65,17 @@ function Popupb(props) {
 
                 <div className="container">
                 <div className="signup-content">
-                <h2 className="form-title"> <FaClipboardList/> Add a new Task</h2>                    
+                <h2 className="form-title"> <FaClipboardList/> Create a new project</h2>                    
                     <form>
                     <div  id="signup-form" className="signup-form" key={index}>                            
                         <div className="form-group" id="form-group">
                             <input 
                             className="form-input" 
                             type="text"
-                            name="nametask"
+                            name="nameprojet"
                             id="text"
-                            placeholder="Title"
-                            value={inputFields.nametask}
+                            placeholder="Titre"
+                            value={inputFields.nameprojet}
                             onChange={event => handleChangeInput(index, event)}/>
                         </div>
             
@@ -91,33 +89,46 @@ function Popupb(props) {
                             value={inputFields.description}
                             onChange={event => handleChangeInput(index, event)}/>
                         </div>
+
+                        <div className="form-group" id="fileavatar">
+                            <span className="spanfile"> Choose an image </span>
+                            <input 
+                            type="file" 
+                            className="form-input" 
+                            name="image" 
+                            id="files"  
+                            value={inputFields.image}
+                            onChange={event => handleChangeInput(index, event)} />
+                        </div>
             
                         <div className="form-group" id="form-group">
                             <span className="spanfile"> Starting Date </span>
                             <input 
                             type="date" 
                             className="form-input" 
-                            name="starting"
-                            value={inputFields.starting}
+                            name="begin"
+                            value={inputFields.begin}
                             onChange={event => handleChangeInput(index, event)}/>
                         </div>
             
                         <div className="form-group" id="form-group">
-                            <span className="spanfile"> Ending Date  </span>
+                            <span className="spanfile"> Ending Date </span>
                             <input 
                             type="date" 
                             className="form-input" 
-                            name="deadline"
+                            name="end"
                             min={disablePastDate()}
-                            value={inputFields.ending}
+                            value={inputFields.end}
                             onChange={event => handleChangeInput(index, event)}/>
-                        </div>                  
+                        </div>
+            
+                    
                 </div>
                   <div className="form-group" id="buttons">
                         <button  type="submit" name="submit" id="submit" className="form-submit" onClick={handleSubmit}> 
-                         NEW TASK 
+                         ADD PROJECT 
                         </button>
-                        <button  type="submit" name="submit" id="submit" className="form-submit" onClick={()=>props.setTrigger(false)}> 
+                        <button  type="submit" name="submit" id="submit" className="form-submit" onClick={() => props.setTrigger(false)}> 
                         CLOSE
                         </button>
                     </div>
@@ -125,7 +136,9 @@ function Popupb(props) {
             
             </div>
             </div>           
-          )) }              
+          )) }
+              
+                    
                 </div>
             </div>
         </Wrapper>
@@ -286,7 +299,7 @@ margin-top: 1.5rem;
 }
 
 .signup-content{
-height: 38rem;
+height: 41rem;
 margin-top: 1rem;
 opacity: 1;
 }
@@ -312,4 +325,4 @@ gap: 1.2rem;
 
 `
 
-export default Popupb;
+export default PopupProject;
