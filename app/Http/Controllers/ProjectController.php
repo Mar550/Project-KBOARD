@@ -20,6 +20,7 @@ class ProjectController extends Controller
      */
 
     public function create(Request $req){ 
+        
         $project = new Project;
         $project ->nameproject=$req->input('nameprojet');
         $project ->description=$req->input('description');
@@ -144,7 +145,10 @@ class ProjectController extends Controller
         ]);
     }
 
-
+    public function search($key)
+    {
+        return Project::where('nameproject','Like',"%$key%")->get();
+    }
     
     /**
      * Remove the specified resource from storage.

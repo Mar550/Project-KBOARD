@@ -35,7 +35,6 @@ class TaskController extends Controller
         $task -> description=$req->input('description');
         $task -> date_begin=$req->input('starting');
         $task -> date_ending=$req->input('ending');
-        $task -> project_id=$req->input('project_id');
         $task -> save();
         return $task;
     }

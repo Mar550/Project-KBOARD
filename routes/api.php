@@ -34,7 +34,7 @@ Route::get('project/{id}',[ProjectController::class,'getProject']);
 Route::get('edit/project/{id}',[ProjectController::class,'edit']);
 Route::put('update/project/{id}',[ProjectController::class,'update']);
 Route::delete('delete/{id}',[ProjectController::class,'delete']);
-
+Route::get('search/{key}', [ProjectController::class,'search']);
 
 
 Route::post('task/create',[TaskController::class,'create']);

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('date_begin')->default('CURRENT_TIMESTAMP');;
             $table->string('date_ending')->default('CURRENT_TIMESTAMP');;
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
