@@ -124,14 +124,13 @@ function Projects () {
                     <div className="divimg">
                     <img className="img" src={img} />
                     </div>
-                    <hr/>
                     <div className="paddingdiv">
                     <h1 className="titlep">
                          {item.nameproject}
                     </h1>
-                    <h3 className="descriptionp">
+                    <p className="descriptionp">
                          {item.description}
-                    </h3 >
+                    </p>
                     <div className="tabledates">
                         <div className="rowdate">
                             <p> Starting:</p>
@@ -200,7 +199,7 @@ const Wrapper = styled.header `
 }
 
 .projectcontainer{
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -208,7 +207,6 @@ const Wrapper = styled.header `
     opacity: 0.7;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     margin-top: 5%;
-    border: 2px solid black;
 }
 
 .gridcontainer{
@@ -217,6 +215,11 @@ const Wrapper = styled.header `
     grid-template-columns: repeat(3,1fr); 
     grid-template-rows: auto;
     margin-left: 10%;
+}
+
+.descriptionp{
+    color:black;
+    line-height: 19px;
 }
 
 .row2{
@@ -246,6 +249,7 @@ const Wrapper = styled.header `
     justify-content: end;
     gap: 15px;
     color: black;
+    margin-top:5px;
 }
 
 .icon{
@@ -290,6 +294,11 @@ const Wrapper = styled.header `
 
 .divimg{
     margin: 0;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5); 
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 
 hr{

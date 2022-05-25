@@ -42,17 +42,14 @@ function PopupTask(props) {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputFields);
-        console.log(result);
         let data = JSON.stringify(result);
         axios
           .post('http://127.0.0.1:8000/api/task/create',data,
           {headers:{"Content-Type" : "application/json"}}).then(response =>{window.location.reload()})
-        props.setTrigger(false);
+        props.setTrigger(false);    
       }
 
-      
-
+  
     
     return (props.trigger) ? (
         <Wrapper>
@@ -104,7 +101,7 @@ function PopupTask(props) {
                             <input 
                             type="date" 
                             className="form-input" 
-                            name="deadline"
+                            name="ending"
                             min={disablePastDate()}
                             value={inputFields.ending}
                             onChange={event => handleChangeInput(index, event)}/>

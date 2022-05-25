@@ -42,7 +42,6 @@ function PopupProject(props) {
       let data = JSON.stringify(result);
 
       const handleSubmit = (e) => {
-        e.preventDefault();
         console.log(inputFields);
         console.log(result);
         let data = JSON.stringify(result);

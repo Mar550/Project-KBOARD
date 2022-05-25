@@ -56,14 +56,13 @@ function Register() {
     }
     return (
             <>
-            <Navbar/>
             <div className="containermain">
                 <section className="signup">
                 <img src="#" alt=""/> 
                 <div className="container">
                 <div className="signup-content">
                     <div  id="signup-form" className="signup-form">
-                    <h2 className="form-title">Create account</h2>
+                    <h2 className="form-title">Create an account</h2>
                     <div className="form-group">
                         <input type="text" className="form-input" name="firstname" id="firstname" placeholder="Your First name" value={firstname}  onChange={(e)=>setFirstName(e.target.value)}/>
                     </div>
