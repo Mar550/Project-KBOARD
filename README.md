@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# KBOARD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+KBOARD is a simple project management application. It allows the user to create projects where he can add different tasks, and order the tasks on a Kanban style board following their progress and significance.
 
-## Available Scripts
 
-In the project directory, you can run:
+## How to run the app
 
-### `npm start`
+1. Download the application and open the folder
+2. Install all dependencies using the ‘npm I’ command.
+3. Start the web server using the ‘npm start’. The app will be served at http://localhost:3000/.
+4. Go to http://localhost:3000/ in your browser and access to the home page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to register
 
-### `npm test`
+1. In the home page, click on the link  « Sign Up here »
+2. Enter the informations required in the registration form.
+3. Upload a personal avatar.
+4. Check the Agree all statements box.
+5. Click on the submit button to validate your registration.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## How to login
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Enter the email used for you subscription.
+2. Enter the password used for your subscription.
+3. Submit in using the login button
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## User Stories
 
-### `npm run eject`
+- A user can create a project
+- A user can edit the informations of the project
+- A user can delete a project
+- A user can search a project among the existing ones
+- A user can generate a Kanban board
+- A user can create a task 
+- A user can change the position of a task in the board
+- A user can delete a task
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Creating a project
+	The project created is displayed on the dashboard page
+	The project informations are validated and must be complete.
+	Each project has a timestamp
+	The project creation generates a Kanban board linked to the project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Editing a project
+	The project informations are displayed on a new editable form
+	The project new informations are validated and must be complete.
+	
+- Searching a project 
+	The keyword searched gets sent to backend and allows to get any corresponding result. 
 
-## Learn More
+- Deleting a project 
+	The project deleted is removed from the database and doesn’t appear on the dashboard.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Creating a task
+	The task created is displayed on the first column « To Do » of the board.
+	The task informations are validated and must be complete.
+	Each project has a timestamp
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Moving the tasks in the board
+	The user can move the position of a task in the different columns of the board, and among the different tasks of the same column.
+	The status of the task changes when it’s moved to another column.
 
-### Code Splitting
+- Deleting a task
+	The task deleted is removed from the database and doesn’t appear on the board.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Coming features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Light/Dark mode for the board
+- Possibility for multiple users to manage the same project as a team.
+- Chat window for communication among the members of the same team
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Technologies
 
-### Advanced Configuration
+- Front-End
+	JavaScript
+	JQuery
+	React JS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Back-End
+	PHP
+	Laravel
 
-### Deployment
+## Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- React Bootstrap
+- React Icons
+- React Dnd
+- React material UI
+- React styled components
+- React Router Dom
+- React Scripts
+- React Redux
+- SweetAlert2
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What the app looks like
+<img width="1438" alt="Kboard-preview1" src="https://user-images.githubusercontent.com/85247784/173402704-7b8d1df7-bef3-4242-9618-cda6bc022461.png">
+<img width="1438" alt="Kboard-preview2" src="https://user-images.githubusercontent.com/85247784/173402744-eb6d550e-43c2-49c9-9476-c20bcbea2ad9.png">
+<img width="1438" alt="Kboard-preview3" src="https://user-images.githubusercontent.com/85247784/173402785-7217143d-1ac1-4298-afcb-277134ed271a.png">
+<img width="1438" alt="Kboard-preview4" src="https://user-images.githubusercontent.com/85247784/173402822-b2b0ff08-e35f-49d2-9fd1-e0572c7c9324.png">
+
+
+
