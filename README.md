@@ -1,64 +1,111 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# KBOARD
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+KBOARD is a simple project management application. It allows the user to create projects where he can add different tasks, and order the tasks on a Kanban style board following their progress and significance.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## How to run the app
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Download the application and open the folder
+2. Install all dependencies using the ‘npm I’ command.
+3. Start the web server using the ‘npm start’. The app will be served at http://localhost:3000/.
+4. Go to http://localhost:3000/ in your browser and access to the home page.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## How to register
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. In the home page, click on the link  « Sign Up here »
+2. Enter the informations required in the registration form.
+3. Upload a personal avatar.
+4. Check the Agree all statements box.
+5. Click on the submit button to validate your registration.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## How to login
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1. Enter the email used for you subscription.
+2. Enter the password used for your subscription.
+3. Submit in using the login button
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## User Stories
 
-## Contributing
+- A user can create a project
+- A user can edit the informations of the project
+- A user can delete a project
+- A user can search a project among the existing ones
+- A user can generate a Kanban board
+- A user can create a task 
+- A user can change the position of a task in the board
+- A user can delete a task
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## Features
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Creating a project
+	The project created is displayed on the dashboard page
+	The project informations are validated and must be complete.
+	Each project has a timestamp
+	The project creation generates a Kanban board linked to the project
 
-## Security Vulnerabilities
+- Editing a project
+	The project informations are displayed on a new editable form
+	The project new informations are validated and must be complete.
+	
+- Searching a project 
+	The keyword searched gets sent to backend and allows to get any corresponding result. 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Deleting a project 
+	The project deleted is removed from the database and doesn’t appear on the dashboard.
 
-## License
+- Creating a task
+	The task created is displayed on the first column « To Do » of the board.
+	The task informations are validated and must be complete.
+	Each project has a timestamp
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Moving the tasks in the board
+	The user can move the position of a task in the different columns of the board, and among the different tasks of the same column.
+	The status of the task changes when it’s moved to another column.
+
+- Deleting a task
+	The task deleted is removed from the database and doesn’t appear on the board.
+
+
+## Coming features
+
+- Light/Dark mode for the board
+- Possibility for multiple users to manage the same project as a team.
+- Chat window for communication among the members of the same team
+
+
+## Technologies
+
+- Front-End
+	JavaScript
+	JQuery
+	React JS
+
+- Back-End
+	PHP
+	Laravel
+
+## Dependencies
+
+- React Bootstrap
+- React Icons
+- React Dnd
+- React material UI
+- React styled components
+- React Router Dom
+- React Scripts
+- React Redux
+- SweetAlert2
+
+
+## What the app looks like
+<img width="1438" alt="Kboard-preview1" src="https://user-images.githubusercontent.com/85247784/173402704-7b8d1df7-bef3-4242-9618-cda6bc022461.png">
+<img width="1438" alt="Kboard-preview2" src="https://user-images.githubusercontent.com/85247784/173402744-eb6d550e-43c2-49c9-9476-c20bcbea2ad9.png">
+<img width="1438" alt="Kboard-preview3" src="https://user-images.githubusercontent.com/85247784/173402785-7217143d-1ac1-4298-afcb-277134ed271a.png">
+<img width="1438" alt="Kboard-preview4" src="https://user-images.githubusercontent.com/85247784/173402822-b2b0ff08-e35f-49d2-9fd1-e0572c7c9324.png">
+
+
+
