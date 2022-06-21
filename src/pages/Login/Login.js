@@ -54,7 +54,7 @@ const Login = () => {
                 <div className="texttitle"> 
                     <h1 className="maintitle"> Use this app to replace them all ... </h1>
                     <br/>
-                    <h1 className="subtitle"> and help your team move work forward. </h1>
+                    <h1 className="subtitle"> and help your team move work forward ! </h1>
                 </div>
                 <img className="img" src={img}/>
             </div>
@@ -104,9 +104,14 @@ const Wrapper=styled.header`
 }
 
 .img{
-    width: 100%;
+    width: 70%;
     border: none;
     margin-left: 10%;
+    margin-top: -2%;
+}
+
+.signup-content{
+    margin-top: 8rem;
 }
 `
 

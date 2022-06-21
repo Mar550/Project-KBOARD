@@ -174,6 +174,7 @@ const Wrapper = styled.header `
     display:flex;
     flex-direction:row;
     justify-content: end;
+    margin-left: 8%;
     gap: 6%;
     margin-top: -40px;
 }
@@ -195,7 +196,7 @@ const Wrapper = styled.header `
     font-size: 35px;
 }
 .divsearch{
-    margin-right: 12%;
+    margin-right: 6%;
 }
 
 .projectcontainer{
