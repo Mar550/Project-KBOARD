@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import {BiSearchAlt2} from 'react-icons/bi';
 import Swal from 'sweetalert2';
 
+
 function Projects () {
 
     const [name,setName]=useState("");
@@ -19,8 +20,6 @@ function Projects () {
     const [end,setEnd]= useState("");
 
     const [buttonPopup, setButtonPopup] = useState(false);
-
-  
 
     const addProject = async() =>
     {
@@ -39,7 +38,6 @@ function Projects () {
     }
 
     const [data,setData]=useState([]);
-
     useEffect( ()=>{
         getData();
     },[]);
@@ -58,17 +56,17 @@ function Projects () {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
+            Swal.fire(
                 'Deleted!',
                 'The project has been deleted.',
                 'success'
-              )
-              setData();
-              window.location.reload()
+            )
+            setData();
+            window.location.reload()
             }
-          })
+        })
     }
 
     const getData = async($id) => {
@@ -76,7 +74,6 @@ function Projects () {
         result = await result.json();
         setData(result);
     }
-
 
     const [search, setSearch] = useState("");
 
@@ -89,17 +86,9 @@ function Projects () {
         console.log(result)
     }
 
-    /** 
-        const searchProject = async(key) => {
-            setSearch(key)
-            let result = await fetch(`http://127.0.0.1:8000/api/search/${key}`)
-            result = await result.json();
-            setData(result)
-        }
-    */
-
     return (
         <Wrapper> 
+            
         <div className="pagetitle">
             <div className="divnew">
             <Button variant="contained" className="btn-contained" onClick={() => setButtonPopup(true)}> New Project </Button>
@@ -149,14 +138,10 @@ function Projects () {
                 </div>
             </div>
         )} 
-
         </div>
-
-            <div> 
-                <PopupProject trigger={buttonPopup} setTrigger ={setButtonPopup}  />              
-            </div>
-
-            
+        <div> 
+            <PopupProject trigger={buttonPopup} setTrigger ={setButtonPopup}/>              
+        </div>
         </Wrapper>
     )
 }
@@ -166,7 +151,6 @@ const Wrapper = styled.header `
 .searchicon:hover{
     cursor:pointer;
     font-size: 40px;
-
 }
 
 .pagetitle{

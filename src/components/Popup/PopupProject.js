@@ -12,10 +12,10 @@ function PopupProject(props) {
   const disablePastDate = () => {
     const today = new Date();
     const dd = String(today.getDate() + 1).padStart(2, "0");
-    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0
     const yyyy = today.getFullYear();
     return yyyy + "-" + mm + "-" + dd;
-};
+  };
 
 
     const [inputFields, setInputField] = useState([
@@ -50,9 +50,6 @@ function PopupProject(props) {
           {headers:{"Content-Type" : "application/json"}}).then(response =>{window.location.reload()})
         props.setTrigger(false);
       }
-
-      
-
     
     return (props.trigger) ? (
         <Wrapper>

@@ -15,7 +15,6 @@ import Navbar from './components/Navbar/Navbar';
 import Contact from './pages/Contact/Contact';
 import Private from './helpers/Private';
 import SearchProject from './pages/Projects/SearchProject';
-import Testing from './TestAdd';
 import EditProject from './pages/Projects/EditProject';
 import Protected from './helpers/Protected.js';
 
@@ -79,9 +78,7 @@ const App = () => {
           <EditProject/>
         </Route>
 
-        <Route path="/testing">
-          <Testing/>
-        </Route>
+
         <Route exact path='*'>
           <Error/>
         </Route>

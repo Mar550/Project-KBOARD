@@ -12,7 +12,7 @@ const Login = () => {
 
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const history = useHistory();
+    const  history = useHistory();
 
     useEffect(()=> {
         if(localStorage.getItem('user-info'))
@@ -40,7 +40,7 @@ const Login = () => {
             title: 'You are now logged ',
             showConfirmButton: false,
             timer: 1500
-          })
+        })
         history.push("/projects");
         window.location.reload()
     }
