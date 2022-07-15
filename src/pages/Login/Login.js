@@ -34,13 +34,6 @@ const Login = () => {
         });
         result = await result.json();
         localStorage.setItem("user-info",JSON.stringify(result))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'You are now logged ',
-            showConfirmButton: false,
-            timer: 1500
-        })
         history.push("/projects");
         window.location.reload()
     }

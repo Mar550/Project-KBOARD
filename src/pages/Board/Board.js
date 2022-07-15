@@ -85,7 +85,7 @@ function Board3() {
             <div className="divnew">
             <div className="switch">
             <label id="icons"> {theme === "light" ? <BsSunFill /> : <BsMoonFill className="moon"/>} </label>
-            <Switch onChange={toggleTheme} checked={theme === "dark"} className="switch-btn"/>
+            <Switch onChange={toggleTheme} checked={theme === "dark"} className="switch-btn" />
             </div>
             <Button variant="contained" id="addtask" className="btn-contained" onClick={() => setButtonPopup(true)}> New Task </Button>
             </div>  

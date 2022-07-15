@@ -87,8 +87,8 @@ function Projects () {
     }
 
     return (
-        <Wrapper> 
-            
+        <Wrapper > 
+        <div className="page"> 
         <div className="pagetitle">
             <div className="divnew">
             <Button variant="contained" className="btn-contained" onClick={() => setButtonPopup(true)}> New Project </Button>
@@ -142,11 +142,16 @@ function Projects () {
         <div> 
             <PopupProject trigger={buttonPopup} setTrigger ={setButtonPopup}/>              
         </div>
+        </div>
         </Wrapper>
     )
 }
 
 const Wrapper = styled.header `
+
+.page{
+    margin-top: -6rem;
+}
 
 .searchicon:hover{
     cursor:pointer;
@@ -154,21 +159,18 @@ const Wrapper = styled.header `
 }
 
 .pagetitle{
-    height: 6rem;
     display:flex;
     flex-direction:row;
     justify-content: end;
-    margin-left: 8%;
-    gap: 6%;
-    margin-top: -40px;
+    margin-top: 4rem;
 }
 
 .btn-contained{
-    margin-top: 11%;
-    width: 120%; 
-    height: 60%;
-    font-size: 21px;
+    width: 13rem; 
+    height: 80%;
+    font-size: 19px;
     font-weight: bold;
+    margin-top: -5px;
 }
 
 .searchfield{
@@ -195,7 +197,7 @@ const Wrapper = styled.header `
 }
 
 .gridcontainer{
-    margin-top: 3%;
+    margin-top: 1%;
     display: grid;
     grid-template-columns: repeat(3,1fr); 
     grid-template-rows: auto;

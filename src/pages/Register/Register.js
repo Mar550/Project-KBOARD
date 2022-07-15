@@ -56,6 +56,7 @@ function Register() {
     }
     return (
             <>
+            <Navbar/>
             <div className="containermain">
                 <section className="signup">
                 <img src="#" alt=""/> 

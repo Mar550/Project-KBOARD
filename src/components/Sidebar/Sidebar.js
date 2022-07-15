@@ -13,15 +13,14 @@ import {GiHamburgerMenu} from 'react-icons/gi';
 const Sidebar = (props) => {
 
     const history = useHistory();
-
-    let user = JSON.parse(localStorage.getItem('user-info'))
-    console.warn(user)
-    const [showSidebar,setShowSidebar] = useState(false)
+    const [showSidebar,setShowSidebar] = useState(false);
+    let user = JSON.parse(localStorage.getItem('user-info'));
 
     function logout(){
         localStorage.clear();
-        history.push('/')
-        window.location.reload();
+        history.push('/');
+        history.go(0);
+
     }
 
     return (

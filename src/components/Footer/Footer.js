@@ -23,15 +23,7 @@ function Footer()
             </ul>
         </div>
         <div class="footer-bottom">
-            <p>copyright &copy; <a href="#"> Solid Development</a>  </p>
-                    <div class="footer-menu">
-                      <ul class="f-menu">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Contact</a></li>
-                        <li><a href="">Blog</a></li>
-                      </ul>
-                    </div>
+            <p>copyright &copy; <a href="#"> Marouane Merno </a>  </p>
         </div>
     </footer>
         </>
