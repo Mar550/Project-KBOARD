@@ -2,6 +2,11 @@
 
 KBOARD is a simple project management application. It allows the user to create projects where he can add different tasks, and order the tasks on a Kanban style board following their progress and significance.
 
+## Demo
+
+You can find a quick demo off the application in the following youtube link:
+https://www.youtube.com/watch?v=4pBIn-KW1cw
+
 
 ## How to run the app
 

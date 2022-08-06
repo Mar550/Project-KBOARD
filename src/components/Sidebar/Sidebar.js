@@ -35,6 +35,7 @@ const Sidebar = (props) => {
             <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
             activeKey="/home"
             onSelect={selectedKey => alert(`selected ${selectedKey}`)}>
+            <div className="space-between">
             <div className="sidebar-sticky">
             
             <div className="divlink" onClick={() => setShowSidebar(!showSidebar)}>
@@ -68,6 +69,7 @@ const Sidebar = (props) => {
                 <Nav.Link className="navlink" eventKey="disabled" disabled> <BiLogOut className="icones"/> <span className="textsidebar"> LOGOUT </span> </Nav.Link>
             </Nav.Item>
             </div>
+            </div>
             </Nav>
 
             ) : (
@@ -75,6 +77,8 @@ const Sidebar = (props) => {
             <Nav className="col-md-12 d-none d-md-block bg-light sidebarsmall"
             activeKey="/home"
             onSelect={selectedKey => alert(`selected ${selectedKey}`)}>
+            
+            <div className="space-between">
             <div className="sidebar-sticky">
 
             <div className="divlink" onClick={() => setShowSidebar(!showSidebar)} >
@@ -115,8 +119,9 @@ const Sidebar = (props) => {
 
             <div className="divlogout" onClick={logout} >
             <Nav.Item >
-                <Nav.Link className="navlink"> <BiLogOut className="iconessmall"/>  </Nav.Link>
+                <Nav.Link className="navlink"> <BiLogOut className="iconelogout"/>  </Nav.Link>
             </Nav.Item>
+            </div>
             </div>
             </Nav>
             
@@ -132,12 +137,18 @@ const Sidebar = (props) => {
 
 
   const Wrapper = styled.header `
+
+  .space-between{
+    display:flex;
+    flex-direction: column;
+    gap: 20rem;
+  }
+
   .sidebar {
     position: fixed;
     background-color: black;
     top: 0;
     bottom: 0;
-    left: 0;
     min-height: 100vh !important;
     z-index: 100;
     padding: 48px 0 0;
@@ -155,7 +166,7 @@ const Sidebar = (props) => {
     z-index: 100;
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-    width: 3.1rem;
+    width: 4.8rem;
   }
   
   #sidebar-wrapper{
@@ -186,19 +197,28 @@ const Sidebar = (props) => {
     flex-direction: row;
     gap: 2rem;
     font-weight: bold;
+
   }
   
   .icones{
     font-size: 1.7rem;
     color:white;
-    margin-left: 5%;
-  
+    margin-left: 1.1rem;
+    
   }
   
   .iconessmall{
     font-size: 1.7rem;
     color:white;
+    margin-left: 1rem;
+
   } 
+
+  .iconelogout{
+    font-size: 1.9rem;
+    color:white;
+    margin-left: 1.3rem;
+  }
   
   .sidebar-sticky{
     display: flex;
@@ -208,7 +228,6 @@ const Sidebar = (props) => {
   
   
   .divlogout{
-    margin-top: 14rem;
     height: 3rem;
     display: flex;
     align-items: center;
